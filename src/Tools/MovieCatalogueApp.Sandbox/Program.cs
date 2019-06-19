@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieCatalogueApp.Sandbox
 {
-    class Sandbox
+    class Program
     {
         static void Main(string[] args)
         {

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7ACF0012-51B7-48B1-84BB-470B021C9399}</ProjectGuid>
+    <ProjectGuid>{84FDC43D-8775-458B-930D-B5A615C6CAB3}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>MovieCatalogueApp.Sandbox</RootNamespace>
     <AssemblyName>MovieCatalogueApp.Sandbox</AssemblyName>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sandbox.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
