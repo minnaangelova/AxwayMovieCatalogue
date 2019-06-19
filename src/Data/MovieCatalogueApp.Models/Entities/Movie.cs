@@ -1,8 +1,8 @@
-﻿using MovieCatalogueApp.Data.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using MovieCatalogueApp.Data.Entities;
 
-namespace MovieCatalogueApp.Data
+namespace MovieCatalogueApp.Models.Entities
 {
     public class Movie
     {
