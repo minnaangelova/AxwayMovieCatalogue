@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MovieCatalogueApp.Models.Entities;
-
-namespace MovieCatalogueApp.Data.Entities
+﻿namespace MovieCatalogueApp.Models.Entities
 {
     public class Genre
     {
