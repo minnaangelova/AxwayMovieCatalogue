@@ -10,6 +10,7 @@ namespace MovieCatalogueApp.Sandbox
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
