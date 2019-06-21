@@ -195,5 +195,8 @@
   <ItemGroup>
     <Folder Include="Icons\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MovieCatalogue.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
