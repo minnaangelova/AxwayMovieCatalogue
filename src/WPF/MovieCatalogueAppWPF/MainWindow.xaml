@@ -43,8 +43,7 @@
                 <Button Content="Button"></Button>
             </StackPanel>
         </DockPanel>
-
-
+        
 
         <ContentControl Content="{Binding}"  Grid.Row="0" Grid.Column="1" 
                         Grid.ColumnSpan="1" Grid.RowSpan="5">
@@ -55,6 +54,6 @@
                 </DropShadowEffect>
             </Image.Effect>
         </Image>
-        <Label Content="Top 3 rated movies" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="17" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="180" Grid.Column="1" Margin="471.667,72,0,0"/>
+        <Label Content="Top 3 rated movies" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="18" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="180" Grid.Column="1" Margin="471.667,72,0,0"/>
     </Grid>
 </Window>
