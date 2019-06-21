@@ -11,13 +11,9 @@ namespace MovieCatalogueAppWPF.ViewModels
     {
         public ICommand StartUpCommand { get; set; }
 
-        //public StartupViewModel()
-        //{
-        //    this.StartUpCommand = new LambdaCommand((() =>
-        //    {
-        //        var startUpWindow = new StartupView();
-        //        startUpWindow.
-        //    }));
-        //}
+        public StartupViewModel()
+        {
+           
+        }
     }
 }

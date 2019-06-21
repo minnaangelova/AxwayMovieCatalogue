@@ -20,8 +20,11 @@
         <Style TargetType="Button">
             <Setter Property="Height" Value="45px"></Setter>
             <Setter Property="Margin" Value="0,20,0,0"></Setter>
-            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Background" Value="#353535"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
         </Style>
+
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -36,17 +39,30 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <DockPanel Background="Gray" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
+        <DockPanel Background="#353535" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
             <StackPanel>
-                <Button Content="Home" Margin="0,40,0,0" Click="Button_Click1"></Button>
-                <Button Content="Add Movie" Click="Button_Click"></Button>
-                <Button Content="Button"></Button>
+                <Button Margin="0,40,0,0" Click="Button_Click1">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Icons/icons8-home-50.png" Width="18"></Image>
+                        <TextBlock Text="Home" FontSize="12pt" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Button>
+                <Button Content="Add Movie" FontSize="12pt" Click="Button_Click"></Button>
+                <Button Content="Edit Movie" FontSize="12pt"></Button>
+                <Button Content="List Movies" FontSize="12pt"></Button>
             </StackPanel>
         </DockPanel>
+        
 
         <ContentControl Content="{Binding}"  Grid.Row="0" Grid.Column="1" 
                         Grid.ColumnSpan="1" Grid.RowSpan="5">
         </ContentControl>
-        
+        <Image Source="MovieCatalogue.jpg" HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="177" Grid.Column="1" Margin="29,0,0,0" >
+            <Image.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="25">
+                </DropShadowEffect>
+            </Image.Effect>
+        </Image>
+        <Label Content="Top 3 rated movies" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="18" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="180" Grid.Column="1" Margin="471.667,72,0,0"/>
     </Grid>
 </Window>
