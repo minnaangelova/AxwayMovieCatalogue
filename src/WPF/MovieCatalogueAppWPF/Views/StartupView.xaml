@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="MovieCatalogueAppWPF.StartupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieCatalogueAppWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1130">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Column="1">
+            <TextBox Height="42"  FontSize="15 pt" Width="265" Margin="12.5,0,0,0"/>
+            <Button Height="42" Width="42" Margin="0">Search</Button>
+
+        </WrapPanel>
+
+        <Button Grid.Column="0" Height="400" Grid.Row="1" Margin="25, 25, 12.5, 120"></Button>
+        <Button Grid.Column="1" Height="400" Grid.Row="1" Margin="12.5, 25, 12.5, 120"></Button>
+        <Button Grid.Column="2" Height="400" Grid.Row="1" Margin="12.5, 25, 25, 120"></Button>
+    </Grid>
+</UserControl>
