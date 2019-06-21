@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp1
+namespace MovieCatalogueAppWPF.ViewModels
 {
-    class MainWindowViewModel
+    class AddMovieViewModel
     {
+
     }
 }

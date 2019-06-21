@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace MovieCatalogueAppWPF.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddMovieView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddMovieView : UserControl
     {
-        public MainWindow()
+        public AddMovieView()
         {
             InitializeComponent();
         }
