@@ -20,7 +20,7 @@ namespace MovieCatalogueApp.Data
 
             var builder = new DbContextOptionsBuilder<MovieCatalogueAppContext>();
 
-            var connectionString = configuration.GetConnectionString("DefaultConnection"); // Your Connection string - Minna or Ivaylo . 
+            var connectionString = configuration.GetConnectionString("DESKTOP-LDOU0U8"); // Your Connection string - Minna or Ivaylo . 
                                                                                            // Could be set in appsettings.json file 
 
             builder.UseSqlServer(connectionString);
