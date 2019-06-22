@@ -13,7 +13,7 @@ namespace MovieCatalogueApp.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201906211434055_InitialCreate"; }
+            get { return "201906211648319_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
