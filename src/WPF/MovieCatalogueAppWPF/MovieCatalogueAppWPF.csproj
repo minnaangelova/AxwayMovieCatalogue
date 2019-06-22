@@ -57,9 +57,21 @@
     </ApplicationDefinition>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\AddMovieViewModel.cs" />
+    <Compile Include="ViewModels\DeleteMovieViewModel.cs" />
+    <Compile Include="ViewModels\EditMovieViewModel.cs" />
+    <Compile Include="ViewModels\ListAllMoviesViewModel.cs" />
     <Compile Include="ViewModels\StartupViewModel.cs" />
     <Compile Include="Views\AddMovieView.xaml.cs">
       <DependentUpon>AddMovieView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeleteMovieView.xaml.cs">
+      <DependentUpon>DeleteMovieView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditMovieView.xaml.cs">
+      <DependentUpon>EditMovieView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListAllMoviesView.xaml.cs">
+      <DependentUpon>ListAllMoviesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StartupView.xaml.cs">
       <DependentUpon>StartupView.xaml</DependentUpon>
@@ -80,6 +92,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AddMovieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DeleteMovieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditMovieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListAllMoviesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
