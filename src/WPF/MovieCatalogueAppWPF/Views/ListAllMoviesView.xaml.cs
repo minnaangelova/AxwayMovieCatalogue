@@ -17,7 +17,7 @@ namespace MovieCatalogueAppWPF.Views
     /// <summary>
     /// Interaction logic for ListAllMoviesView.xaml
     /// </summary>
-    public partial class ListAllMoviesView : Window
+    public partial class ListAllMoviesView 
     {
         public ListAllMoviesView()
         {
