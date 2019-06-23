@@ -11,7 +11,7 @@ namespace MovieCatalogueApp.Data.Migrations
                 "dbo.Actors",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
+                        Id = c.Int(nullable: false, identity: true),
                         FirstName = c.String(),
                         LastName = c.String(),
                         Born = c.DateTime(),
@@ -34,28 +34,28 @@ namespace MovieCatalogueApp.Data.Migrations
                         Rating = c.Double(nullable: false),
                         Summary = c.String(),
                         Poster = c.String(),
-                        GenreId = c.Int(nullable: false),
+                        GenreId = c.Int(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Genres", t => t.GenreId)
+                .Index(t => t.GenreId);
             
             CreateTable(
                 "dbo.Genres",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Movies", t => t.Id)
-                .Index(t => t.Id);
+                .PrimaryKey(t => t.Id);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Genres", "Id", "dbo.Movies");
+            DropForeignKey("dbo.Movies", "GenreId", "dbo.Genres");
             DropForeignKey("dbo.Actors", "MovieId", "dbo.Movies");
-            DropIndex("dbo.Genres", new[] { "Id" });
+            DropIndex("dbo.Movies", new[] { "GenreId" });
             DropIndex("dbo.Actors", new[] { "MovieId" });
             DropTable("dbo.Genres");
             DropTable("dbo.Movies");

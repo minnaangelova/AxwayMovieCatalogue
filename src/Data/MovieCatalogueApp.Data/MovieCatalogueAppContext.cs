@@ -15,9 +15,10 @@ namespace MovieCatalogueApp.Data
         public DbSet<Movie> Movies { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Movie>()
-                .HasOptional(g => g.Genre)
-                .WithRequired(mg => mg.Movie);
+            modelBuilder.Entity<Genre>()
+                .HasOptional(m => m.Movie)
+                .WithOptionalPrincipal(g => g.Genre)
+                .Map(a => a.MapKey("GenreId"));
         }
     }
 }
