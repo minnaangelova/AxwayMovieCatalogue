@@ -16,9 +16,6 @@ using MovieCatalogueAppWPF.Views;
 
 namespace MovieCatalogueAppWPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -28,14 +25,30 @@ namespace MovieCatalogueAppWPF
             this.DataContext = new StartupView();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonStartup(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new StartupView();
+        }
+
+        private void ButtonAdd(object sender, RoutedEventArgs e)   
         {
             this.DataContext = new AddMovieView();
         }
 
-        private void Button_Click1(object sender, RoutedEventArgs e)
+        private void ButtonDelete(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new StartupView();
+            this.DataContext = new DeleteMovieView();
         }
+
+        private void ButtonEdit(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new EditMovieView();
+        }
+
+        private void ButtonList(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new ListAllMoviesView();
+        }
+
     }
 }

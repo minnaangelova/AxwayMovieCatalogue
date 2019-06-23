@@ -41,8 +41,10 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="1" Width="200" Height="30" HorizontalAlignment="Center"
-                   Text="Add a movie"/>
+        <Label Grid.Row="0" Grid.Column="1" Width="135" HorizontalAlignment="Center"
+                   Content="Add a movie" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="20" FontWeight="Bold" FontStyle="Italic" Margin="119.333,52,122.333,42"  />
+
+        <Button Content="Add" Grid.Column="2" Margin="110,40,110,40" Grid.Row="2"/>
 
         <WrapPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4">
             <TextBlock Text="   Title"></TextBlock>
@@ -58,8 +60,8 @@
             <TextBlock Text="   Summary"></TextBlock>
             <TextBox></TextBox>
         </WrapPanel>
-        
-        
-        
+
+
+
     </Grid>
 </UserControl>
