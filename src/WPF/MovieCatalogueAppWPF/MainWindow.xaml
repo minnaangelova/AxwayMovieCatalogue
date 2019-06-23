@@ -59,15 +59,6 @@
         <DockPanel Background="#353535" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
             <StackPanel>
 
-                <Button Content="Home" Margin="0,40,0,0" Click="Button_Click1"></Button>
-                <Button Content="Add Movie" Click="Button_Click"></Button>
-                
-                <Button Content="Delete Movie" Click="Button_Click"></Button>
-                <Button Content="Edit Movie" Click="Button_Click"></Button>
-                <Button Content="List All Movies" Click="Button_Click"></Button>
-                
-                
-
                 <Button Margin="0,40,0,0" Click="Button_Click1">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="Icons/icons8-home-50.png" Width="18"></Image>
