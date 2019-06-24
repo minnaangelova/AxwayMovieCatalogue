@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using MovieCatalogueApp.Data;
 using MovieCatalogueApp.Models.Entities;
 using Newtonsoft.Json.Linq;
