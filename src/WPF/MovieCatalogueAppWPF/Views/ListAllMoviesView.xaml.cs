@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 namespace MovieCatalogueAppWPF.Views
 {
 
-    public partial class AddMovieView : UserControl
+    public partial class ListAllMoviesView : UserControl
     {
-        public AddMovieView()
+        public ListAllMoviesView()
         {
             InitializeComponent();
         }

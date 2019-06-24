@@ -15,14 +15,12 @@ using System.Windows.Shapes;
 
 namespace MovieCatalogueAppWPF
 {
-    /// <summary>
-    /// Interaction logic for StartupView.xaml
-    /// </summary>
-    public partial class StartupView : UserControl
+   public partial class StartupView : UserControl
     {
-        public StartupView()
+        public StartupView() 
         {
-            InitializeComponent();
+             InitializeComponent();
         }
     }
 }
+

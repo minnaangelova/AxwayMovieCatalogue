@@ -15,10 +15,9 @@ using System.Windows.Shapes;
 
 namespace MovieCatalogueAppWPF.Views
 {
-
-    public partial class AddMovieView : UserControl
+    public partial class DeleteMovieView : UserControl
     {
-        public AddMovieView()
+        public DeleteMovieView()
         {
             InitializeComponent();
         }

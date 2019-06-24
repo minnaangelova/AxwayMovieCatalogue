@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="MovieCatalogueAppWPF.Views.AddMovieView"
+﻿<UserControl x:Class="MovieCatalogueAppWPF.Views.ListAllMoviesView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -28,6 +28,30 @@
     </UserControl.Resources>
 
     <Grid>
+
+        <ListView HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1007" Margin="59,127,0,0" Grid.ColumnSpan="3" Grid.RowSpan="4">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding}" Width="150"/>
+                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding}" Width="80"/>
+                    <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding}" Width="100"/>
+                    <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding}" Width="200"/>
+                    <GridViewColumn Header="Poster" DisplayMemberBinding="{Binding}" Width="200"/>
+                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding}" Width="100"/>
+                    <GridViewColumn Header="Actors" DisplayMemberBinding="{Binding}" Width="170"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Label Content="Order movies by:" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="20" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="198" Margin="233,38,0,0" Grid.ColumnSpan="2"/>
+
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Grid.Column="1" Margin="118.333,38,0,0" Height="34">
+            <ComboBoxItem Content="Release Date"></ComboBoxItem>
+            <ComboBoxItem Content="Rating"></ComboBoxItem>
+            <ComboBoxItem Content="Title"></ComboBoxItem>
+
+        </ComboBox>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -40,26 +64,6 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-
-        <Label Grid.Row="0" Grid.Column="1" Width="135" HorizontalAlignment="Center"
-                   Content="Add a movie" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="20" FontWeight="Bold" FontStyle="Italic" Margin="119.333,52,122.333,42"  />
-
-        <Button Content="Add" Grid.Column="1" Margin="337.333,25,219,55" Grid.Row="2" Grid.ColumnSpan="2"/>
-
-        <WrapPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4">
-            <TextBlock Text="   Title"></TextBlock>
-            <TextBox></TextBox>
-            <TextBlock Text="   Release Date"></TextBlock>
-            <TextBox></TextBox>
-            <TextBlock Text="   Rating"></TextBlock>
-            <TextBox></TextBox>
-            <TextBlock Text="   Summary"></TextBlock>
-            <TextBox></TextBox>
-            <TextBlock Text="   Poster"></TextBlock>
-            <TextBox></TextBox>
-            <TextBlock Text="   Summary"></TextBlock>
-            <TextBox></TextBox>
-        </WrapPanel>
 
 
 

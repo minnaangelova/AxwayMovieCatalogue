@@ -27,5 +27,11 @@
         <Button Grid.Column="0" Height="400" Grid.Row="1" Margin="25, 25, 12.5, 120"></Button>
         <Button Grid.Column="1" Height="400" Grid.Row="1" Margin="12.5, 25, 12.5, 120"></Button>
         <Button Grid.Column="2" Height="400" Grid.Row="1" Margin="12.5, 25, 25, 120"></Button>
+
+        <Label Content="Top 3 rated movies" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="17" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="92.333,10,0,0" Grid.Row="1" Height="36" Width="187"/>
+
+
+
+
     </Grid>
 </UserControl>

@@ -8,7 +8,7 @@ namespace MovieCatalogueApp.Models.Entities
 {
     public class Actor
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime? Born { get; set; }
