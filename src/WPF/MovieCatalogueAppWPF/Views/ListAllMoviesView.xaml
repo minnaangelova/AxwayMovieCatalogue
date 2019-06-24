@@ -29,15 +29,16 @@
 
     <Grid>
 
-        <ListView HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1000" Margin="68,10,0,0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3">
+        <ListView HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1007" Margin="59,127,0,0" Grid.ColumnSpan="3" Grid.RowSpan="4">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding}" Width="200"/>
-                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding}" Width="100"/>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding}" Width="150"/>
+                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding}" Width="80"/>
                     <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding}" Width="100"/>
                     <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding}" Width="200"/>
                     <GridViewColumn Header="Poster" DisplayMemberBinding="{Binding}" Width="200"/>
-                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding}" Width="200"/>
+                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding}" Width="100"/>
+                    <GridViewColumn Header="Actors" DisplayMemberBinding="{Binding}" Width="170"/>
                 </GridView>
             </ListView.View>
         </ListView>

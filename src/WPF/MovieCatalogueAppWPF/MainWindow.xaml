@@ -29,6 +29,7 @@
             <local:StartupView DataContext="{Binding}"/>
         </DataTemplate>
 
+
         <Style TargetType="Button">
             <Setter Property="Height" Value="45px"></Setter>
 
@@ -69,7 +70,6 @@
                 <Button Content="Delete Movie" FontSize="12pt" Click="ButtonDelete"></Button>
                 <Button Content="Edit Movie" FontSize="12pt" Click="ButtonEdit"></Button>
                 <Button Content="List Movies" FontSize="12pt" Click="ButtonList"></Button>
-                
 
             </StackPanel>
         </DockPanel>
