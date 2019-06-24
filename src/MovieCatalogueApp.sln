@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCatalogueApp.Data", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCatalogueApp.Models", "Data\MovieCatalogueApp.Models\MovieCatalogueApp.Models.csproj", "{FCFCC9A6-1124-4264-A781-9A676384E18B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCatalogueApp.AbstractionLayer", "Data\MovieCatalogueApp.AbstractionLayer\MovieCatalogueApp.AbstractionLayer.csproj", "{3AAFB6FE-4348-4347-8906-687B6685DE84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FCFCC9A6-1124-4264-A781-9A676384E18B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFCC9A6-1124-4264-A781-9A676384E18B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCFCC9A6-1124-4264-A781-9A676384E18B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AAFB6FE-4348-4347-8906-687B6685DE84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AAFB6FE-4348-4347-8906-687B6685DE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AAFB6FE-4348-4347-8906-687B6685DE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AAFB6FE-4348-4347-8906-687B6685DE84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{A7B6B1C6-CB68-4725-B88D-98E7C7ED50A3} = {9C558F63-601B-4DDE-B786-9E9C2CA61BF1}
 		{648E606C-3461-44E7-B921-9BD61D66245A} = {001F9458-AA15-4633-8A49-2D7F0D4C0A8E}
 		{FCFCC9A6-1124-4264-A781-9A676384E18B} = {001F9458-AA15-4633-8A49-2D7F0D4C0A8E}
+		{3AAFB6FE-4348-4347-8906-687B6685DE84} = {001F9458-AA15-4633-8A49-2D7F0D4C0A8E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50BE0BBF-E619-4098-BDD7-B5CC71B4562A}

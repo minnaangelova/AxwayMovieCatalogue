@@ -7,7 +7,7 @@ namespace MovieCatalogueApp.Data
     {
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Genre> Genres { get; set; }
-        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Movie> Movies { get; set; }                
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Genre>()

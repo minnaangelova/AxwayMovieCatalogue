@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbRepository.cs" />
     <Compile Include="Migrations\201906230000244_InitialCreate.cs" />
     <Compile Include="Migrations\201906230000244_InitialCreate.Designer.cs">
       <DependentUpon>201906230000244_InitialCreate.cs</DependentUpon>
@@ -64,6 +65,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MovieCatalogueApp.AbstractionLayer\MovieCatalogueApp.AbstractionLayer.csproj">
+      <Project>{3AAFB6FE-4348-4347-8906-687B6685DE84}</Project>
+      <Name>MovieCatalogueApp.AbstractionLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MovieCatalogueApp.Models\MovieCatalogueApp.Models.csproj">
       <Project>{FCFCC9A6-1124-4264-A781-9A676384E18B}</Project>
       <Name>MovieCatalogueApp.Models</Name>
