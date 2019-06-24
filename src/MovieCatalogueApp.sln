@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCatalogueApp.Data", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCatalogueApp.Models", "Data\MovieCatalogueApp.Models\MovieCatalogueApp.Models.csproj", "{FCFCC9A6-1124-4264-A781-9A676384E18B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCatalogueAppWPF", "WPF\MovieCatalogueAppWPF\MovieCatalogueAppWPF.csproj", "{0CFF370C-AD6F-48C5-9289-B569D937D850}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FCFCC9A6-1124-4264-A781-9A676384E18B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFCC9A6-1124-4264-A781-9A676384E18B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCFCC9A6-1124-4264-A781-9A676384E18B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CFF370C-AD6F-48C5-9289-B569D937D850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CFF370C-AD6F-48C5-9289-B569D937D850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CFF370C-AD6F-48C5-9289-B569D937D850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CFF370C-AD6F-48C5-9289-B569D937D850}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
