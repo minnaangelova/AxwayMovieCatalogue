@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using MovieCatalogueApp.Models.Entities;
 
 namespace MovieCatalogueApp.Data
 {
-    public class MovieCatalogueAppContext :   DbContext
+    public class MovieCatalogueAppContext : DbContext
     {
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Genre> Genres { get; set; }
