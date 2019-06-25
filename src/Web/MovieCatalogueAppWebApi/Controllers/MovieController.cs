@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using MovieCatalogueApp.Data;
 using MovieCatalogueApp.Models.Entities;
+using MovieCataloogueApp.Services.Interfaces;
 
 namespace MovieCatalogueAppWebApi.Controllers
 {
@@ -14,24 +15,22 @@ namespace MovieCatalogueAppWebApi.Controllers
     {
         private readonly IRepository<Movie> _movieRepository;
 
-        public MovieController(IRepository<Movie> _movieRepository)
+        private readonly IMovieService movieService;
+        public MovieController(IRepository<Movie> _movieRepository,IMovieService _movieService)
         {
             this._movieRepository = _movieRepository;
+            this.movieService = _movieService;
         }
 
 
 
-        [HttpGet, Route("")]
-        public IHttpActionResult Get()
+        [HttpGet, Route("all")]
+        public IHttpActionResult GetAlMoviesByReleaseDate()
         {
-            var movie = this._movieRepository.All();
-            return Json(movie);
+            var result = this.movieService.allMovieOrderByReleaseDate();
+            return Ok(result);
         }
 
-        //[HttpGet, Route("")]
-        //public IEnumerable<Movie> Get()
-        //{
-        //    return this._movieRepository.All().ToList();
-        //}
+      
     }
 }

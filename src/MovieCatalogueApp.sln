@@ -21,8 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{91
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieCataloogueApp.Services", "Services\MovieCataloogueApp.Services\MovieCataloogueApp.Services.csproj", "{CD3B8358-FC99-404C-A27A-C4DD0BDD74B3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{856E6192-1C37-4FAD-A50C-7BB9F6BD5E26}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,7 +57,6 @@ Global
 		{648E606C-3461-44E7-B921-9BD61D66245A} = {001F9458-AA15-4633-8A49-2D7F0D4C0A8E}
 		{FCFCC9A6-1124-4264-A781-9A676384E18B} = {001F9458-AA15-4633-8A49-2D7F0D4C0A8E}
 		{CD3B8358-FC99-404C-A27A-C4DD0BDD74B3} = {91627EFE-1740-402E-AC40-E63A4B73AC50}
-		{856E6192-1C37-4FAD-A50C-7BB9F6BD5E26} = {91627EFE-1740-402E-AC40-E63A4B73AC50}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50BE0BBF-E619-4098-BDD7-B5CC71B4562A}

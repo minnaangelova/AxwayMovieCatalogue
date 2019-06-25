@@ -7,7 +7,8 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using MovieCatalogueApp.Data;
-
+using MovieCataloogueApp.Services;
+using MovieCataloogueApp.Services.Interfaces;
 
 namespace MovieCatalogueAppWebApi.Infrastructure
 {
@@ -31,6 +32,8 @@ namespace MovieCatalogueAppWebApi.Infrastructure
             builder.RegisterType<MovieCatalogueAppContext>().InstancePerRequest();
 
             builder.RegisterGeneric(typeof(DbRepository<>)).As(typeof(IRepository<>));
+
+           builder.RegisterType<MovieService>().As<IMovieService>().InstancePerRequest();
 
 
 

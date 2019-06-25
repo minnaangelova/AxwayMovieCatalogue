@@ -269,6 +269,10 @@
       <Project>{FCFCC9A6-1124-4264-A781-9A676384E18B}</Project>
       <Name>MovieCatalogueApp.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\MovieCataloogueApp.Services\MovieCataloogueApp.Services.csproj">
+      <Project>{CD3B8358-FC99-404C-A27A-C4DD0BDD74B3}</Project>
+      <Name>MovieCataloogueApp.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
