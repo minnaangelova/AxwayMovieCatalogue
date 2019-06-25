@@ -10,6 +10,6 @@ namespace MovieCatalogueAppWPF.ViewModels
 {
     public class DeleteMovieViewModel
     {
-       
+       //
     }
 }
