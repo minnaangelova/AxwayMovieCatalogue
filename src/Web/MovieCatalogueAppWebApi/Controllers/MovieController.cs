@@ -22,8 +22,6 @@ namespace MovieCatalogueAppWebApi.Controllers
             this.movieService = _movieService;
         }
 
-
-
         [HttpGet, Route("all")]
         public IHttpActionResult GetAlMoviesByReleaseDate()
         {
@@ -38,6 +36,12 @@ namespace MovieCatalogueAppWebApi.Controllers
             return Ok(result);
         }
 
-      
+     [HttpPost, Route("add")]
+     public IHttpActionResult AddMovie(Movie movie)
+        {
+            var result = this.movieService.addMovie(movie);
+            return Ok(result);
+        }
+        
     }
 }

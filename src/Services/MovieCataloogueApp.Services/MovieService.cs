@@ -44,5 +44,24 @@ namespace MovieCataloogueApp.Services
 
         }
 
+        public IEnumerable<Movie> addMovie(Movie movie)
+        {
+            var doesExist = movieRepository.All().Any(m => m.Title == movie.Title);
+
+            if(!doesExist)
+            {
+                movieRepository.Add(movie);
+                movieRepository.SaveChangesAsync();
+
+                return movieRepository.All();
+            }
+            else
+            {
+                throw new InvalidOperationException("Movie already exists.");
+            }
+
+            
+        }
+
     }
 }

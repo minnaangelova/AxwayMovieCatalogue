@@ -11,6 +11,7 @@ namespace MovieCataloogueApp.Services.Interfaces
     {
         IEnumerable<Movie> allMovieOrderByReleaseDate();
         IEnumerable<Movie> allMovieOrderBy(string orderBy);
+        IEnumerable<Movie> addMovie(Movie movie);
 
     }
 }
