@@ -43,5 +43,12 @@ namespace MovieCatalogueAppWebApi.Controllers
             return Ok(result);
         }
         
+        [HttpDelete, Route("delete/{id}")]
+        public IHttpActionResult DeleteMovie([FromUri]int movieId)
+        {
+            var result = this.movieService.deleteMovie(movieId);
+            return Ok(result);
+        }
+
     }
 }

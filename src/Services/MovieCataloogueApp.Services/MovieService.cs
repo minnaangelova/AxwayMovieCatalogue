@@ -63,5 +63,22 @@ namespace MovieCataloogueApp.Services
             
         }
 
+        public IEnumerable<Movie> deleteMovie(int movieId)
+        {
+            var deleteMovie = this.movieRepository.All().FirstOrDefault(m => m.Id == movieId);
+
+            if (deleteMovie == null)
+            {
+                throw new InvalidOperationException("Movie doesn't exists.");
+            }
+            else
+            {
+                movieRepository.Delete(deleteMovie);
+                movieRepository.SaveChangesAsync();
+
+                return movieRepository.All();
+            }
+        }
+
     }
 }
