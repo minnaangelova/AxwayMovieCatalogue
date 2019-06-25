@@ -20,7 +20,7 @@ namespace MovieCatalogueApp.Sandbox
             //for (int i = 6; i <= 11; i++)
             //{
             /*string webApiUrl = "http://www.omdbapi.com/?apikey=72d47109&i=tt866391" + i;*/ // apikey should be changed for new user usage
-            string webApiUrl = "http://www.omdbapi.com/?apikey=72d47109&i=tt8350360";
+            string webApiUrl = "http://www.omdbapi.com/?apikey=72d47109&i=tt3741700";
                 var webApiJsonDownload = webClient.DownloadString(webApiUrl); // Download json data from webApiUrl
                 var parsedJson = JObject.Parse(webApiJsonDownload);
                 var movieTitle = parsedJson["Title"].ToString();

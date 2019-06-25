@@ -13,12 +13,12 @@ namespace MovieCatalogueAppWebApi.Controllers
     [RoutePrefix("movies")]
     public class MovieController : ApiController
     {
-        private readonly IRepository<Movie> _movieRepository;
+        
 
         private readonly IMovieService movieService;
-        public MovieController(IRepository<Movie> _movieRepository,IMovieService _movieService)
+        public MovieController(IMovieService _movieService)
         {
-            this._movieRepository = _movieRepository;
+          
             this.movieService = _movieService;
         }
 
@@ -28,6 +28,13 @@ namespace MovieCatalogueAppWebApi.Controllers
         public IHttpActionResult GetAlMoviesByReleaseDate()
         {
             var result = this.movieService.allMovieOrderByReleaseDate();
+            return Ok(result);
+        }
+
+        [HttpGet,Route("{orderBy}")]
+        public IHttpActionResult GetAllMoviesBy(string orderBy)
+        {
+            var result = this.movieService.allMovieOrderBy(orderBy);
             return Ok(result);
         }
 

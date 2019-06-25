@@ -10,5 +10,7 @@ namespace MovieCataloogueApp.Services.Interfaces
     public interface IMovieService
     {
         IEnumerable<Movie> allMovieOrderByReleaseDate();
+        IEnumerable<Movie> allMovieOrderBy(string orderBy);
+
     }
 }

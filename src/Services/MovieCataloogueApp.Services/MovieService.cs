@@ -27,5 +27,22 @@ namespace MovieCataloogueApp.Services
             return result;
         }
 
+        public IEnumerable<Movie> allMovieOrderBy(string orderBy)
+        {
+            var result = this.movieRepository.All();
+
+            if(orderBy=="Title")
+            {
+                result.OrderBy(m => m.Title);
+
+            }
+            else if(orderBy=="Rating")
+            {
+                result.OrderBy(m => m.Rating);
+            }
+            return result.AsEnumerable();
+
+        }
+
     }
 }
