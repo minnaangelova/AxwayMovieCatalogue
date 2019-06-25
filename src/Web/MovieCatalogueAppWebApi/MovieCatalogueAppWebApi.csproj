@@ -261,10 +261,6 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\MovieCatalogueApp.AbstractionLayer\MovieCatalogueApp.AbstractionLayer.csproj">
-      <Project>{3AAFB6FE-4348-4347-8906-687B6685DE84}</Project>
-      <Name>MovieCatalogueApp.AbstractionLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Data\MovieCatalogueApp.Data\MovieCatalogueApp.Data.csproj">
       <Project>{648E606C-3461-44E7-B921-9BD61D66245A}</Project>
       <Name>MovieCatalogueApp.Data</Name>

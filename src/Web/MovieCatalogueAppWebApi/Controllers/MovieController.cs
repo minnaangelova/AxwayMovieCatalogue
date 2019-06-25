@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using MovieCatalogueApp.AbstractionLayer;
+using MovieCatalogueApp.Data;
 using MovieCatalogueApp.Models.Entities;
 
 namespace MovieCatalogueAppWebApi.Controllers

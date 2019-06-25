@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
-using MovieCatalogueApp.AbstractionLayer;
 using MovieCatalogueApp.Data;
 
 
