@@ -38,7 +38,7 @@ namespace MovieCataloogueApp.Services
             }
             else if(orderBy=="Rating")
             {
-                result.OrderBy(m => m.Rating);
+                result.OrderByDescending(m => m.Rating);
             }
             return result.AsEnumerable();
 
