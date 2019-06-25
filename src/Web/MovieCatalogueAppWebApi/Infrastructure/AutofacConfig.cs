@@ -14,6 +14,7 @@ namespace MovieCatalogueAppWebApi.Infrastructure
 {
     public class AutofacConfig
     {
+
         public static void RegisterDependencies()
         {
             var builder = new ContainerBuilder();
