@@ -13,12 +13,10 @@ namespace MovieCatalogueAppWebApi.Controllers
     [RoutePrefix("movies")]
     public class MovieController : ApiController
     {
-        
 
         private readonly IMovieService movieService;
         public MovieController(IMovieService _movieService)
         {
-          
             this.movieService = _movieService;
         }
 
@@ -31,13 +29,14 @@ namespace MovieCatalogueAppWebApi.Controllers
             return Ok(result);
         }
 
-        [HttpGet,Route("{orderBy}")]
+        [HttpGet, Route("{orderBy}")]
         public IHttpActionResult GetAllMoviesBy(string orderBy)
         {
             var result = this.movieService.allMovieOrderBy(orderBy);
             return Ok(result);
         }
 
-      
+
+
     }
 }
