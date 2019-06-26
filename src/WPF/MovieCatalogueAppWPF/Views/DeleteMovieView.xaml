@@ -31,20 +31,22 @@
 
         <Label Content="Select a movie" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="17" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="121.333,42,0,0" Width="127" Grid.Column="1"/>
 
-        <ListView HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1000" Margin="68,10,0,0" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3">
+        <ListView HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1000" Margin="68,10,0,0" Grid.Row="1" Grid.ColumnSpan="3"
+                  Grid.Column="0" Grid.RowSpan="3">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding}" Width="200"/>
-                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding}" Width="100"/>
-                    <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding}" Width="100"/>
-                    <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding}" Width="200"/>
-                    <GridViewColumn Header="Poster" DisplayMemberBinding="{Binding}" Width="200"/>
-                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding}" Width="200"/>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding ReleaseDate}" Width="100"/>
+                    <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding Rating}" Width="100"/>
+                    <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding Summary}" Width="200"/>
+                    <GridViewColumn Header="Poster" DisplayMemberBinding="{Binding Poster}" Width="200"/>
+                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}" Width="200"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button Content="Delete" Grid.Column="1" Margin="124,40,124,40" Grid.Row="4"/>
+        <Button Content="Delete" Grid.Column="1" Margin="124,40,124,40" Grid.Row="4"
+                Command="{Binding DeleteMovieCommand}"/>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

@@ -3,48 +3,26 @@ using System.Windows.Input;
 
 namespace MovieCatalogueAppWPF
 {
-
-    public class RelayCommand : ICommand
+    class LambdaCommand : ICommand
     {
-        Action<object> executeAction;
-        Func<object, bool> canExecute;
-        bool canExecuteCache;
+        private readonly Action _action;
 
-        public RelayCommand(Action<object> executeAction, Func<object, bool> canExecute, bool canExecuteCache)
+        public LambdaCommand(Action action)
         {
-            this.canExecute = canExecute;
-            this.executeAction = executeAction;
-            canExecuteCache = canExecuteCache;
+            this._action = action;
         }
-
 
         public bool CanExecute(object parameter)
         {
-            if (canExecute == null)
-            {
-                return true;
-            }
-            else
-            {
-                return canExecute(parameter);
-            }
-        }
-
-        public event EventHandler CanExecuteChanged
-        {
-            add
-            {
-                CommandManager.RequerySuggested += value;
-            }
-            remove
-            {
-                CommandManager.RequerySuggested -= value;
-            }
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            executeAction(parameter);
+            this._action.Invoke();
         }
+
+        public event EventHandler CanExecuteChanged;
     }
 }
+

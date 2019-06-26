@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MovieCatalogueAppWPF.ViewModels;
 
 namespace MovieCatalogueAppWPF.Views
 {
@@ -21,6 +22,8 @@ namespace MovieCatalogueAppWPF.Views
         public AddMovieView()
         {
             InitializeComponent();
+
+            this.DataContext = new AddMovieViewModel();
         }
     }
 }

@@ -9,10 +9,29 @@
         Title="MainWindow" Height="720" Width="1280">
 
 
+     <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+
     <Window.Resources>
+        <DataTemplate x:Name="startUpTemplate" DataType="{x:Type vm:StartupViewModel}">
+            <local:StartupView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="addMovieTemplate" DataType="{x:Type vm:AddMovieViewModel}">
+            <local:StartupView DataContext="{Binding}"/>
+        </DataTemplate>
 
+        <DataTemplate x:Name="deleteMovieTemplate" DataType="{x:Type vm:DeleteMovieViewModel}">
+            <local:StartupView DataContext="{Binding}"/>
+        </DataTemplate>
 
-        <vm:MainWindowViewModel x:Key="MainWindowViewModel"/>
+        <DataTemplate x:Name="editMovieTemplate" DataType="{x:Type vm:EditMovieViewModel}">
+            <local:StartupView DataContext="{Binding}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Name="listAllMoviesTemplate" DataType="{x:Type vm:ListAllMoviesViewModel}">
+            <local:StartupView DataContext="{Binding}"/>
+        </DataTemplate>
 
 
         <Style TargetType="Button">
@@ -26,15 +45,13 @@
             <Setter Property="BorderThickness" Value="0"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
 
-     </Style>
+        </Style>
+
     </Window.Resources>
-
-
-    <Grid DataContext="{Binding Source={StaticResource MainWindowViewModel}}">
-
+    <Grid>
         <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="1*"/>
-        <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -45,30 +62,21 @@
         </Grid.RowDefinitions>
 
         <DockPanel Background="#353535" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
+            
             <StackPanel>
-                
+                <Button Margin="0,40,0,0" Content="Home" FontSize="12pt" Click="ButtonStartup"></Button>
+                <Button Content="Add Movie" FontSize="12pt" Click="ButtonAdd"></Button>
+                <Button Content="Delete Movie" FontSize="12pt" Click="ButtonDelete"></Button>
+                <Button Content="Edit Movie" FontSize="12pt" Click="ButtonEdit"></Button>
+                <Button Content="List Movies" FontSize="12pt" Click="ButtonList"></Button>
 
-                <Button Margin="0,40,0,0" Command="{Binding StartupCommand}">
-
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="Icons/icons8-home-50.png" Width="18"></Image>
-                        <TextBlock Text="Home" FontSize="12pt" VerticalAlignment="Center"></TextBlock>
-                    </StackPanel>
-                </Button>
-
-                    
-               
-                <Button Content="Add Movie" Command="{Binding AddCommand}"  FontSize="12pt" ></Button>
-                <Button Content="Delete Movie" Command="{Binding DeleteCommand}" FontSize="12pt"  ></Button>
-                <Button Content="Edit Movie" Command="{Binding EditCommand}" FontSize="12pt" ></Button>
-                <Button Content="List Movies" Command="{Binding ListAllCommand}" FontSize="12pt" ></Button>
-                
             </StackPanel>
         </DockPanel>
+        
 
-        <ContentControl Content="{Binding }"  Grid.Row="0" Grid.Column="1" 
+        <ContentControl Content="{Binding}"  Grid.Row="0" Grid.Column="1" 
                         Grid.ColumnSpan="1" Grid.RowSpan="5">
         </ContentControl>
-
+       
     </Grid>
 </Window>

@@ -1,17 +1,17 @@
 ﻿using System.ComponentModel;
 using MovieCatalogueAppWPF.Annotations;
 
-namespace MovieCatalogueAppWPF.ViewModels
+namespace MovieCatalogueAppWPF
 {
-    public class ViewModel: INotifyPropertyChanged
+    public class ViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged( string propertyName)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke
-                (this, 
+                (this,
                 new PropertyChangedEventArgs(propertyName));
         }
     }

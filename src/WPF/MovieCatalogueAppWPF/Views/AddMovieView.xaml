@@ -29,8 +29,7 @@
     </UserControl.Resources>
 
      <Grid>
-         
-        <Grid.ColumnDefinitions>
+         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -44,26 +43,24 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Grid.Column="1" Width="135" HorizontalAlignment="Center"
-                   Content="Add a movie" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="20" FontWeight="Bold" FontStyle="Italic" Margin="119.333,52,122.333,42"  />
+                   Content="Add a movie" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="20" 
+                   FontWeight="Bold" FontStyle="Italic" Margin="119.333,52,122.333,42"  />
 
-        <Button Content="Add" Grid.Column="1" Margin="337.333,25,219,55" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Button Content="Add" Grid.Column="1" Margin="337.333,25,219,55" Grid.Row="2" Grid.ColumnSpan="2"
+                Command="{Binding Path = AddNewMovie}"/>
 
         <WrapPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4">
             <TextBlock Text="   Title"></TextBlock>
-            <TextBox></TextBox>
+            <TextBox Text="{Binding Title}"></TextBox>
             <TextBlock Text="   Release Date"></TextBlock>
-            <TextBox></TextBox>
+            <TextBox Text="{Binding ReleaseDate}"></TextBox>
             <TextBlock Text="   Rating"></TextBlock>
-            <TextBox></TextBox>
+            <TextBox Text="{Binding Rating}"></TextBox>
             <TextBlock Text="   Summary"></TextBlock>
-            <TextBox></TextBox>
-            <TextBlock Text="   Poster"></TextBlock>
-            <TextBox></TextBox>
-            <TextBlock Text="   Summary"></TextBlock>
-            <TextBox></TextBox>
+            <TextBox Text="{Binding Summary}"></TextBox>
+            <TextBlock Text="   Genre"></TextBlock>
+            <TextBox Text="{Binding Genre}"></TextBox>
         </WrapPanel>
-
-
 
     </Grid>
 </UserControl>

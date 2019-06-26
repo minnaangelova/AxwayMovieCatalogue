@@ -23,12 +23,33 @@ namespace MovieCatalogueAppWPF
         {
             InitializeComponent();
 
-            
             this.DataContext = new MainWindowViewModel();
             this.DataContext = new StartupView();
-
         }
 
+        private void ButtonStartup(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new StartupView();
+        }
 
+        private void ButtonAdd(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new AddMovieView();
+        }
+
+        private void ButtonDelete(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new DeleteMovieView();
+        }
+
+        private void ButtonEdit(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new EditMovieView();
+        }
+
+        private void ButtonList(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new ListAllMoviesView();
+        }
     }
 }
