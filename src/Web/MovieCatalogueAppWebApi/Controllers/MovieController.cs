@@ -27,19 +27,26 @@ namespace MovieCatalogueAppWebApi.Controllers
             return Ok(result);
         }
 
-        [HttpGet, Route("{orderBy}")]
+        [HttpGet, Route("orderBy/{orderBy}")]
         public IHttpActionResult GetAllMoviesBy(string orderBy)
         {
             var result = this.movieService.allMovieOrderBy(orderBy);
             return Ok(result);
         }
 
-        [HttpDelete, Route("delete/{id}")]
-        public IHttpActionResult DeleteMovie([FromUri]int movieId)
+        [AcceptVerbs("DELETE", "GET")]
+        [HttpDelete, Route("deleteMovie/{id}")]
+        public IHttpActionResult DeleteMovie(int id)
         {
-            var result = this.movieService.deleteMovie(movieId);
+            var result = this.movieService.deleteMovie(id);
             return Ok(result);
         }
 
+        [HttpGet, Route("search/{title}")]
+        public IHttpActionResult SearchMovie(string title)
+        {
+            var result = this.movieService.searchMovie(title);
+            return Ok(result);
+        }
     }
 }

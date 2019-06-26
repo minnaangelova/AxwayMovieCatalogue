@@ -81,5 +81,20 @@ namespace MovieCataloogueApp.Services
             }
         }
 
+        public Movie searchMovie(string title)
+        {
+            var searchMovie = this.movieRepository.All().FirstOrDefault(m => m.Title.Contains(title));
+
+            if(searchMovie==null)
+            {
+                throw new InvalidOperationException("Movie doesn't exists.");
+            }
+            else
+            {
+                return searchMovie;
+            }
+
+        }
+
     }
 }
