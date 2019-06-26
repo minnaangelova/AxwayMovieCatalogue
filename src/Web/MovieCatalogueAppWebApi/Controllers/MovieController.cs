@@ -48,5 +48,12 @@ namespace MovieCatalogueAppWebApi.Controllers
             var result = this.movieService.searchMovie(title);
             return Ok(result);
         }
+
+        [HttpGet, Route("topMovies")]
+        public IHttpActionResult HomeTopMovies()
+        {
+            var result = this.movieService.GetHomeTopRatedMovies();
+            return Ok(result);
+        }
     }
 }
