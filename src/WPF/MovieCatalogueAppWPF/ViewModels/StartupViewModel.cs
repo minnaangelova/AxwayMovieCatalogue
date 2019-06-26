@@ -14,6 +14,21 @@ namespace MovieCatalogueAppWPF.ViewModels
     public class StartupViewModel: ViewModel
     {
         public ICommand SearchMovieCommand { get; set; }
+        private string textBoxValue;
+
+        public string TextBoxValue
+        {
+            get { return textBoxValue; }
+            set
+            {
+                if (this.textBoxValue != value)
+                {
+                    textBoxValue = value;
+                    OnPropertyChanged(nameof(TextBoxValue));
+                }
+            }
+        }
+
 
         public StartupViewModel()
         {
@@ -21,12 +36,12 @@ namespace MovieCatalogueAppWPF.ViewModels
             {
                 HttpClient client = new HttpClient
                 {
-                    BaseAddress = new Uri("http://localhost:12789/")
+                    BaseAddress = new Uri("http://localhost:62560/")
                 };
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var url = "api/movie";  //+ id;
+                var url = "movies/search/" + this.TextBoxValue; //+ id;
 
                 HttpResponseMessage response = client.GetAsync(url).Result;
 
