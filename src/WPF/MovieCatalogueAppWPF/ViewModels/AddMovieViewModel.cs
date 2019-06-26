@@ -97,7 +97,7 @@ namespace MovieCatalogueAppWPF.ViewModels
                 {
                     HttpClient client = new HttpClient
                     {
-                        BaseAddress = new Uri("http://localhost:12789/")
+                        BaseAddress = new Uri("http://localhost:62560/")
                     };
 
                     client.DefaultRequestHeaders.Accept.Add(
