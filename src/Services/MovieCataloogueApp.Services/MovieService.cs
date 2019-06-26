@@ -13,7 +13,7 @@ namespace MovieCataloogueApp.Services
     {
 
         private readonly IRepository<Movie> movieRepository;
-
+        private const int TOP_RATED_MOVIES_HOME_VIEW = 3;
         public MovieService(IRepository<Movie> _movieRepository)
         {
             this.movieRepository = _movieRepository;
@@ -96,5 +96,10 @@ namespace MovieCataloogueApp.Services
 
         }
 
+        public IEnumerable<Movie> GetHomeTopRatedMovies()
+        {
+            var topRatedMovies = this.movieRepository.All().OrderByDescending(m => m.Rating).Take(TOP_RATED_MOVIES_HOME_VIEW);
+            return topRatedMovies;
+        }
     }
 }
