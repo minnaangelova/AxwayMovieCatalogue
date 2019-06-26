@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MovieCatalogueAppWPF.ViewModels;
 
 namespace MovieCatalogueAppWPF
 {
@@ -20,6 +21,8 @@ namespace MovieCatalogueAppWPF
         public StartupView() 
         {
              InitializeComponent();
+
+             this.DataContext = new StartupViewModel();
         }
     }
 }

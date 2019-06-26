@@ -28,11 +28,11 @@
     </UserControl.Resources>
 
     <Grid>
-
         <Label Content="Select a movie" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="17" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="121.333,42,0,0" Width="127" Grid.Column="1"/>
 
         <ListView HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1000" Margin="68,10,0,0" Grid.Row="1" Grid.ColumnSpan="3"
-                  Grid.Column="0" Grid.RowSpan="3">
+                  Grid.Column="0" Grid.RowSpan="3"
+                  ItemsSource="{Binding }" SelectedItem="{Binding CurrentMovie}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
@@ -45,8 +45,7 @@
             </ListView.View>
         </ListView>
 
-        <Button Content="Delete" Grid.Column="1" Margin="124,40,124,40" Grid.Row="4"
-                Command="{Binding DeleteMovieCommand}"/>
+        <Button Content="Delete" Grid.Column="1" Margin="124,40,124,40" Grid.Row="4" Command="{Binding DeleteMovieCommand}"/>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

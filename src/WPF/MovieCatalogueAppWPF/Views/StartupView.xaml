@@ -19,7 +19,7 @@
 
         <WrapPanel Grid.Column="1">
             <TextBox Height="42"  FontSize="15 pt" Width="265" Margin="12.5,0,0,0"/>
-            <Button Height="42" Width="42" Margin="0">Search</Button>
+            <Button Height="42" Width="42" Margin="0" Command="{Binding SearchMovieCommand}">Search</Button>
 
         </WrapPanel>
 
