@@ -15,5 +15,6 @@ namespace MovieCataloogueApp.Services.Interfaces
         IEnumerable<Movie> deleteMovie(int movieId);
         Movie searchMovie(string title);
         IEnumerable<Movie> GetHomeTopRatedMovies();
+        IEnumerable<Movie> EditMovie(int id, Movie movie);
     }
 }

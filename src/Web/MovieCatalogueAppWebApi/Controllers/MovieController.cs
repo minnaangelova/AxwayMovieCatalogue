@@ -55,5 +55,12 @@ namespace MovieCatalogueAppWebApi.Controllers
             var result = this.movieService.GetHomeTopRatedMovies();
             return Ok(result);
         }
+
+        [HttpPut, Route("edit/{id}")]
+        public IHttpActionResult Edit(int id, Movie movie)
+        {
+            var result = this.movieService.EditMovie(id, movie);
+            return Ok(result);
+        }
     }
 }
