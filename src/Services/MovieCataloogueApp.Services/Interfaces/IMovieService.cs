@@ -13,6 +13,6 @@ namespace MovieCataloogueApp.Services.Interfaces
         IEnumerable<Movie> allMovieOrderBy(string orderBy);
         IEnumerable<Movie> addMovie(Movie movie);
         IEnumerable<Movie> deleteMovie(int movieId);
-        //
+        Movie searchMovie(string title);
     }
 }

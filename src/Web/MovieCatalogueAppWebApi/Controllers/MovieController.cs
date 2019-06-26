@@ -42,6 +42,11 @@ namespace MovieCatalogueAppWebApi.Controllers
             return Ok(result);
         }
 
-
+        [HttpGet, Route("search/{title}")]
+        public IHttpActionResult SearchMovie(string title)
+        {
+            var result = this.movieService.searchMovie(title);
+            return Ok(result);
+        }
     }
 }
