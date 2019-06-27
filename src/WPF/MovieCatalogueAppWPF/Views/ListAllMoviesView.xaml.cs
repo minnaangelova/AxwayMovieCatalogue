@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieCatalogueAppWPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,8 @@ namespace MovieCatalogueAppWPF.Views
         public ListAllMoviesView()
         {
             InitializeComponent();
+
+            this.DataContext = new ListAllMoviesViewModel();
         }
     }
 }

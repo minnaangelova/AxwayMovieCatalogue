@@ -101,5 +101,23 @@ namespace MovieCataloogueApp.Services
             var topRatedMovies = this.movieRepository.All().OrderByDescending(m => m.Rating).Take(TOP_RATED_MOVIES_HOME_VIEW);
             return topRatedMovies;
         }
+
+        public IEnumerable<Movie> EditMovie(int id, Movie movie)
+        {
+            var getMovie = this.movieRepository.All().FirstOrDefault(m => m.Id == id);
+
+            if(getMovie == null)
+            {
+                throw new InvalidOperationException("Movie doesn't exists.");
+            }
+            else
+            {
+                getMovie.Title = movie.Title;
+                movieRepository.SaveChangesAsync();
+                return movieRepository.All();
+            }
+        }
     }
+
+     
 }
