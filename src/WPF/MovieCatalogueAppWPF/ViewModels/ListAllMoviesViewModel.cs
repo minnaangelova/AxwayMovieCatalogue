@@ -11,6 +11,7 @@ using System.Windows.Input;
 using MovieCatalogueApp.Models.Entities;
 using MovieCatalogueAppWPF.Validations;
 using System.Collections.ObjectModel;
+using System.Windows.Controls;
 
 namespace MovieCatalogueAppWPF.ViewModels
 {
@@ -22,11 +23,19 @@ namespace MovieCatalogueAppWPF.ViewModels
         private double _rating;
         private Genre _genre;
         private Actor _actor;
+        private ObservableCollection<Movie> _collectionOfMovies;
 
-        public ObservableCollection<Movie> collectionOfMovies
+        public ObservableCollection<Movie> CollectionOfMovies
         {
-            get;
-            set;
+            get => _collectionOfMovies;
+            set
+            {
+                if (this._collectionOfMovies != value)
+                {
+                    _collectionOfMovies = value;
+                    OnPropertyChanged(nameof(CollectionOfMovies));
+                }
+            }
         }
 
         public string Title
@@ -129,7 +138,9 @@ namespace MovieCatalogueAppWPF.ViewModels
                 var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
 
 
-                collectionOfMovies = movies as ObservableCollection<Movie>;
+                CollectionOfMovies = new ObservableCollection<Movie>(movies);                
+                
+               
 
                 MessageBox.Show(response.IsSuccessStatusCode
                     ? "Success!"

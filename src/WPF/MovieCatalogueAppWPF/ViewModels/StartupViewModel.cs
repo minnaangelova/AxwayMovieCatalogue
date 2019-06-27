@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -14,6 +15,8 @@ namespace MovieCatalogueAppWPF.ViewModels
     public class StartupViewModel: ViewModel
     {
         public ICommand SearchMovieCommand { get; set; }
+
+        public ObservableCollection<Movie> Movies { get; set; }
         private string textBoxValue;
 
         public string TextBoxValue
@@ -45,11 +48,15 @@ namespace MovieCatalogueAppWPF.ViewModels
 
                 HttpResponseMessage response = client.GetAsync(url).Result;
 
+
+               //Movies = new ObservableCollection<Movie>(movie);
+
                 if (response.IsSuccessStatusCode)
                 {
                     var movie = response.Content.ReadAsAsync<Movie>().Result;
+
                     MessageBox.Show(
-                        $"Movie Found {movie.Title} \n {movie.Genre} \n {movie.Rating} \n {movie.ReleaseDate} \n {movie.Summary} \n {movie.Poster}");
+                     $"Movie Found {movie.Title} \n {movie.Genre} \n {movie.Rating} \n {movie.ReleaseDate} \n {movie.Summary} \n {movie.Poster}");
                 }
                 else
                 {

@@ -23,8 +23,11 @@ namespace MovieCatalogueAppWPF
         {
             InitializeComponent();
 
-            this.DataContext = new MainWindowViewModel();
-            this.DataContext = new StartupView();
+            var viewModel = new MainWindowViewModel();
+            viewModel.CurrentView = new StartupViewModel();
+
+            this.DataContext = viewModel;
+            //this.DataContext = new StartupView();
         }
 
         private void ButtonStartup(object sender, RoutedEventArgs e)

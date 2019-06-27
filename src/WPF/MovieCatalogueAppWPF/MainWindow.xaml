@@ -9,7 +9,7 @@
         Title="MainWindow" Height="720" Width="1280">
 
 
-     <Window.DataContext>
+    <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
 
@@ -50,8 +50,9 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="141*"/>
+            <ColumnDefinition Width="835*"/>
+            <ColumnDefinition Width="297*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -61,22 +62,21 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <DockPanel Background="#353535" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
-            
+        <DockPanel Background="#353535" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Margin="0,0,0.333,-0.333">
+
             <StackPanel>
-                <Button Margin="0,40,0,0" Content="Home" FontSize="12pt" Click="ButtonStartup"></Button>
-                <Button Content="Add Movie" FontSize="12pt" Click="ButtonAdd"></Button>
-                <Button Content="Delete Movie" FontSize="12pt" Click="ButtonDelete"></Button>
-                <Button Content="Edit Movie" FontSize="12pt" Click="ButtonEdit"></Button>
-                <Button Content="List Movies" FontSize="12pt" Click="ButtonList"></Button>
+                <Button Margin="0,40,0,0" Content="Home" FontSize="12pt" Command="{Binding StartupViewCommand}"></Button>
+                <Button Content="Add Movie" FontSize="12pt" Command="{Binding AddMovieViewCommand}"></Button>
+                <Button Content="Delete Movie" FontSize="12pt" Command="{Binding DeleteMovieViewCommand}"></Button>
+                <Button Content="Edit Movie" FontSize="12pt" Command="{Binding EditMovieViewCommand}"></Button>
+                <Button Content="List Movies" FontSize="12pt" Command="{Binding ListAllMoviesViewCommand}"></Button>
 
             </StackPanel>
         </DockPanel>
-        
 
-        <ContentControl Content="{Binding}"  Grid.Row="0" Grid.Column="1" 
-                        Grid.ColumnSpan="1" Grid.RowSpan="5">
-        </ContentControl>
-       
+
+        <ContentControl Content="{Binding CurrentView}"  Grid.Row="0" 
+                        Grid.ColumnSpan="3" Grid.RowSpan="5" Margin="141,0,0.333,-0.333"/>
+
     </Grid>
 </Window>

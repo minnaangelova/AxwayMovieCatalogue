@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:MovieCatalogueAppWPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1130">
+    
     <UserControl.Resources>
+   
 
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="15 pt"></Setter>
@@ -29,7 +31,7 @@
 
     <Grid>
 
-        <ListView Name="listView1" ItemsSource="{Binding Path=collectionOfMovies}" HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1007" Margin="59,127,0,0" Grid.ColumnSpan="3" Grid.RowSpan="4">
+        <ListView x:Name="listView2" ItemsSource="{Binding CollectionOfMovies}" HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1007" Margin="59,127,0,0" Grid.ColumnSpan="3" Grid.RowSpan="4">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="150"/>
