@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -13,25 +14,43 @@ namespace MovieCatalogueAppWPF.ViewModels
 {
     public class StartupViewModel: ViewModel
     {
-        public ICommand SearchMovieCommand { get; set; }
-        private string textBoxValue;
+        private string _textBoxValue;
+        private double _rating;
+
+        public ObservableCollection<Movie> Movies { get; set; }
+
+        public double Rating
+        {
+            get => _rating;
+            set
+            {
+                if (Rating != value)
+                {
+                    _rating = value;
+                    OnPropertyChanged(nameof(Rating));
+                }
+            }
+        }
 
         public string TextBoxValue
         {
-            get { return textBoxValue; }
+            get => _textBoxValue;
             set
             {
-                if (this.textBoxValue != value)
+                if (this._textBoxValue != value)
                 {
-                    textBoxValue = value;
+                    _textBoxValue = value;
                     OnPropertyChanged(nameof(TextBoxValue));
                 }
             }
         }
 
+        public ICommand SearchMovieCommand { get; set; }
 
         public StartupViewModel()
         {
+            
+
             SearchMovieCommand = new LambdaCommand(() =>
             {
                 HttpClient client = new HttpClient
@@ -44,6 +63,13 @@ namespace MovieCatalogueAppWPF.ViewModels
                 var url = "movies/search/" + this.TextBoxValue; //+ id;
 
                 HttpResponseMessage response = client.GetAsync(url).Result;
+
+
+                var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
+
+                Movies = new ObservableCollection<Movie>(movies);
+
+                var topRatedMovie = Movies.OrderByDescending(m => m.Rating).Take(1);
 
                 if (response.IsSuccessStatusCode)
                 {

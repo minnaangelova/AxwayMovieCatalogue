@@ -18,14 +18,12 @@
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Column="1">
-            <TextBox Height="42"  FontSize="15 pt" Width="265" Margin="12.5,0,0,0" />
+            <TextBox Height="42"  FontSize="15 pt" Width="265" Margin="12.5,0,0,0" Text="{Binding TextBoxValue}"/>
             <Button Height="42" Width="42" Margin="0" Command="{Binding SearchMovieCommand}">Search</Button>
-
         </WrapPanel>
 
-        <Button Grid.Column="0" Height="400" Grid.Row="1" Margin="25, 25, 12.5, 120"></Button>
-        <Button Grid.Column="1" Height="400" Grid.Row="1" Margin="12.5, 25, 12.5, 120"></Button>
-        <Button Grid.Column="2" Height="400" Grid.Row="1" Margin="12.5, 25, 25, 120"></Button>
+        <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="1"></Image>
+        <TextBlock  Grid.Column="2" Grid.Row="1" Width="250" Height="250" Text="{Binding Title}"></TextBlock>
 
         <Label Content="Top 3 rated movies" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="17" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="92.333,10,0,0" Grid.Row="1" Height="36" Width="187"/>
 
