@@ -12,6 +12,8 @@ using MovieCatalogueApp.Models.Entities;
 using MovieCatalogueAppWPF.Validations;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.ComponentModel;
 
 namespace MovieCatalogueAppWPF.ViewModels
 {
@@ -24,6 +26,8 @@ namespace MovieCatalogueAppWPF.ViewModels
         private Genre _genre;
         private Actor _actor;
         private ObservableCollection<Movie> _collectionOfMovies;
+
+
 
         public ObservableCollection<Movie> CollectionOfMovies
         {
@@ -119,10 +123,55 @@ namespace MovieCatalogueAppWPF.ViewModels
 
         public ICommand ListAllMovies { get; set; }
 
+        public ICommand ByRating { get; set; }
+
+        public ICommand ByTitle { get; set; }
+
+      
         public ListAllMoviesViewModel()
         {
+
+            ByRating = new LambdaCommand(() =>
+              {
+                  HttpClient client = new HttpClient
+                  {
+                      BaseAddress = new Uri("http://localhost:62560/")
+                  };
+
+                  client.DefaultRequestHeaders.Accept.Add(
+                      new MediaTypeWithQualityHeaderValue("application/json"));
+
+
+                  var response = client.GetAsync("movies/orderBy/Rating").Result;
+
+                  var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
+
+                  CollectionOfMovies = new ObservableCollection<Movie>(movies);
+              });
+
+
+            ByTitle = new LambdaCommand(() =>
+              {
+                  HttpClient client = new HttpClient
+                  {
+                      BaseAddress = new Uri("http://localhost:62560/")
+                  };
+
+                  client.DefaultRequestHeaders.Accept.Add(
+                      new MediaTypeWithQualityHeaderValue("application/json"));
+
+
+                  var response = client.GetAsync("movies/orderBy/Title").Result;
+
+                  var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
+
+                  CollectionOfMovies = new ObservableCollection<Movie>(movies);
+              });
+
+
             ListAllMovies = new LambdaCommand(() =>
             {
+                
 
                 HttpClient client = new HttpClient
                 {

@@ -29,16 +29,20 @@ namespace MovieCataloogueApp.Services
 
         public IEnumerable<Movie> allMovieOrderBy(string orderBy)
         {
-            var result = this.movieRepository.All();
+            var result = this.movieRepository.All().ToList();
+           
+
 
             if(orderBy=="Title")
             {
-                result.OrderBy(m => m.Title);
+                var orderByTitle = result.OrderBy(m => m.Title).ToList();
+                result=orderByTitle;
 
             }
             else if(orderBy=="Rating")
             {
-                result.OrderByDescending(m => m.Rating);
+                var orderByRating = result.OrderByDescending(m => m.Rating).ToList();
+                result = orderByRating;
             }
             return result.AsEnumerable();
 
