@@ -20,7 +20,7 @@ namespace MovieCatalogueAppWPF.ViewModels
         private string _summary;
         private double _rating;
         private Genre _genre;
-        private Actor _actor;
+       
         private ObservableCollection<Movie> _collectionOfMovies;
 
         public ObservableCollection<Movie> CollectionOfMovies
@@ -101,18 +101,7 @@ namespace MovieCatalogueAppWPF.ViewModels
             }
         }
 
-        public Actor Actor
-        {
-            get
-            {
-                return _actor;
-            }
-            set
-            {
-                _actor = value;
-                OnPropertyChanged(nameof(Actor));
-            }
-        }
+        
 
 
         public ICommand ListAllMovies { get; set; }
