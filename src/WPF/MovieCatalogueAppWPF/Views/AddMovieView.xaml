@@ -72,7 +72,6 @@
                     <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding Rating}" Width="100"/>
                     <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding Summary}" Width="100"/>
                     <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}" Width="100"/>
-                    <GridViewColumn Header="Actors" DisplayMemberBinding="{Binding Actor}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
