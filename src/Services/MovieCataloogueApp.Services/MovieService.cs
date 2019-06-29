@@ -55,7 +55,7 @@ namespace MovieCataloogueApp.Services
             if(!doesExist)
             {
                 movieRepository.Add(movie);
-                movieRepository.SaveChangesAsync();
+                movieRepository.SaveChanges();
 
                 return movieRepository.All();
             }
@@ -79,7 +79,7 @@ namespace MovieCataloogueApp.Services
             else
             {
                 movieRepository.Delete(deleteMovie);
-                movieRepository.SaveChangesAsync();
+                movieRepository.SaveChanges();
 
                 return movieRepository.All();
             }
@@ -117,7 +117,7 @@ namespace MovieCataloogueApp.Services
             else
             {
                 getMovie.Title = movie.Title;
-                movieRepository.SaveChangesAsync();
+                movieRepository.SaveChanges();
                 return movieRepository.All();
             }
         }

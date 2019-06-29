@@ -25,12 +25,13 @@ namespace MovieCatalogueAppWPF.ViewModels
             }
         }
 
-        
+
         public ICommand StartupViewCommand { get; set; }
         public ICommand AddMovieViewCommand { get; set; }
         public ICommand DeleteMovieViewCommand { get; set; }
         public ICommand ListAllMoviesViewCommand { get; set; }
         public ICommand EditMovieViewCommand { get; set; }
+        public ICommand ListActorsCommand { get; set; }
 
         public MainWindowViewModel()
         {
@@ -64,6 +65,10 @@ namespace MovieCatalogueAppWPF.ViewModels
 
             });
 
+            ListActorsCommand = new LambdaCommand(() =>
+            {
+                CurrentView = new ListActorsView();
+            });
         }
 
 

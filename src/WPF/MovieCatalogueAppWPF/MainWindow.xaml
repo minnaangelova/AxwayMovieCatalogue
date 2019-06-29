@@ -70,6 +70,7 @@
                 <Button Content="Delete Movie" FontSize="12pt" Command="{Binding DeleteMovieViewCommand}"></Button>
                 <Button Content="Edit Movie" FontSize="12pt" Command="{Binding EditMovieViewCommand}"></Button>
                 <Button Content="List Movies" FontSize="12pt" Command="{Binding ListAllMoviesViewCommand}"></Button>
+                <Button Content="List Actors" FontSize="12pt" Command="{Binding ListActorsCommand}"></Button>
 
             </StackPanel>
         </DockPanel>
@@ -80,3 +81,4 @@
 
     </Grid>
 </Window>
+

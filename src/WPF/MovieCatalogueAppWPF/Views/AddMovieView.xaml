@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MovieCatalogueAppWPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1130">
-    
+
     <UserControl.Resources>
 
         <Style TargetType="TextBlock">
@@ -28,8 +28,8 @@
         </Style>
     </UserControl.Resources>
 
-     <Grid>
-         <Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -46,8 +46,10 @@
                    Content="Add a movie" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="20" 
                    FontWeight="Bold" FontStyle="Italic" Margin="119.333,52,122.333,42"  />
 
-        <Button Content="Add" Grid.Column="1" Margin="337.333,25,219,55" Grid.Row="2" Grid.ColumnSpan="2"
-                Command="{Binding Path = AddNewMovie}"/>
+        <Button Content="List all" Margin="124.667,52,65,15" Command="{Binding ListAll}" Grid.Column="2" />
+
+        <Button Content="Add" Grid.Column="1" Margin="278.333,0,278,80" Grid.Row="1" Grid.ColumnSpan="2"
+                Command="{Binding AddNewMovie}" />
 
         <WrapPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4">
             <TextBlock Text="   Title"></TextBlock>
@@ -61,6 +63,19 @@
             <TextBlock Text="   Genre"></TextBlock>
             <TextBox Text="{Binding Genre}"></TextBox>
         </WrapPanel>
+
+        <ListView x:Name="listView3" ItemsSource="{Binding CollectionOfMovies}" HorizontalAlignment="Left" Height="457" VerticalAlignment="Top" Width="650" Margin="38.333,69,0,0" Grid.ColumnSpan="2" Grid.RowSpan="4" Grid.Column="1" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="100"/>
+                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding ReleaseDate}" Width="100"/>
+                    <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding Rating}" Width="100"/>
+                    <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding Summary}" Width="100"/>
+                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}" Width="100"/>
+                    <GridViewColumn Header="Actors" DisplayMemberBinding="{Binding Actor}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </UserControl>

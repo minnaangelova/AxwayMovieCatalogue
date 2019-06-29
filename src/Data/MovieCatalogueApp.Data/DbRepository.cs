@@ -35,9 +35,9 @@ namespace MovieCatalogueApp.Data
             this.dbSet.Remove(entity);
         }
 
-        public Task<int> SaveChangesAsync()
+        public int SaveChanges()
         {
-            return this._context.SaveChangesAsync();
+            return this._context.SaveChanges();
         }
 
         public void Update(TEntity entity)

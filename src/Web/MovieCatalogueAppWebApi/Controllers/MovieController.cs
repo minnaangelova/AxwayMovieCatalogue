@@ -20,6 +20,13 @@ namespace MovieCatalogueAppWebApi.Controllers
             this.movieService = _movieService;
         }
 
+        [HttpPost, Route("add")]
+        public IHttpActionResult AddNewMovie(Movie movie)
+        {
+            var result = this.movieService.addMovie(movie);
+            return Ok();
+        }
+
         [HttpGet, Route("all")]
         public IHttpActionResult GetAlMoviesByReleaseDate()
         {
@@ -39,7 +46,7 @@ namespace MovieCatalogueAppWebApi.Controllers
         public IHttpActionResult DeleteMovie(int id)
         {
             var result = this.movieService.deleteMovie(id);
-            return Ok(result);
+            return Ok();
         }
 
         [HttpGet, Route("search/{title}")]
