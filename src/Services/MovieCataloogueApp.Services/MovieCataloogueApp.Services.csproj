@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActorService.cs" />
+    <Compile Include="Interfaces\IActorService.cs" />
     <Compile Include="MovieService.cs" />
     <Compile Include="Interfaces\IMovieService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

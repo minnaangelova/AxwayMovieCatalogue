@@ -14,7 +14,7 @@ namespace MovieCatalogueApp.Data
             void Add(TEntity entity);
             void Update(TEntity entity);
             void Delete(TEntity entity);
-            Task<int> SaveChangesAsync();
+            int SaveChanges();
     }
     
 }

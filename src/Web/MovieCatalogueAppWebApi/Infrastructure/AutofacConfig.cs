@@ -34,6 +34,7 @@ namespace MovieCatalogueAppWebApi.Infrastructure
             builder.RegisterGeneric(typeof(DbRepository<>)).As(typeof(IRepository<>));
 
            builder.RegisterType<MovieService>().As<IMovieService>().InstancePerRequest();
+           builder.RegisterType<ActorService>().As<IActorService>().InstancePerRequest();
 
 
 

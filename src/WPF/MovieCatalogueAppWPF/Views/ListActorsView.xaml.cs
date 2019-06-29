@@ -10,25 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MovieCatalogueAppWPF.ViewModels;
 
 namespace MovieCatalogueAppWPF.Views
 {
-
-    public partial class AddMovieView : UserControl
+    /// <summary>
+    /// Interaction logic for ListActorsView.xaml
+    /// </summary>
+    public partial class ListActorsView
     {
-        public AddMovieView()
+        public ListActorsView()
         {
             InitializeComponent();
-
-            this.DataContext = new AddMovieViewModel();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
+            DataContext = new ListActorsViewModel();
         }
     }
 }

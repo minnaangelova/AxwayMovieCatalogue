@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieCatalogueAppWPF"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1130">
+             d:DesignHeight="782.118" d:DesignWidth="1322">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -23,11 +23,13 @@
 
         </WrapPanel>
 
-        <Button Grid.Column="0" Height="400" Grid.Row="1" Margin="25, 25, 12.5, 120"></Button>
-        <Button Grid.Column="1" Height="400" Grid.Row="1" Margin="12.5, 25, 12.5, 120"></Button>
-        <Button Grid.Column="2" Height="400" Grid.Row="1" Margin="12.5, 25, 25, 120"></Button>
+
 
         <Label Content="Top 3 rated movies" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="17" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="92.333,10,0,0" Grid.Row="1" Height="36" Width="187"/>
+
+        <Image Source="https://m.media-amazon.com/images/M/MV5BOGFjYWNkMTMtMTg1ZC00Y2I4LTg0ZTYtN2ZlMzI4MGQwNzg4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="367" Margin="10,77,0,0" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Image Source="https://m.media-amazon.com/images/M/MV5BMTY0MzUwODc4N15BMl5BanBnXkFtZTgwMjMyMjY0NzM@._V1_SX300.jpg" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="356" Grid.Column="1" Margin="10.333,77,0,0" Grid.Row="1"/>
+        <Image Source="https://m.media-amazon.com/images/M/MV5BOGUyZDUxZjEtMmIzMC00MzlmLTg4MGItZWJmMzBhZjE0Mjc1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg" HorizontalAlignment="Left" Height="530" VerticalAlignment="Top" Width="357" Grid.Column="2" Margin="19.667,77,0,0" Grid.Row="1"/>
 
 
 
