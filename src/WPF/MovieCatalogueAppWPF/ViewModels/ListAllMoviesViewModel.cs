@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.ComponentModel;
+using MovieCatalogueAppWPF.Helpers;
 
 namespace MovieCatalogueAppWPF.ViewModels
 {
@@ -24,9 +25,10 @@ namespace MovieCatalogueAppWPF.ViewModels
         private string _summary;
         private double _rating;
         private Genre _genre;
-  
-        private ObservableCollection<Movie> _collectionOfMovies;
+        private Option _selectedOption = new Option();
 
+        private ObservableCollection<Option> _collectionOfOptions = new ObservableCollection<Option>();
+        private ObservableCollection<Movie> _collectionOfMovies;
 
 
         public ObservableCollection<Movie> CollectionOfMovies
@@ -107,7 +109,32 @@ namespace MovieCatalogueAppWPF.ViewModels
             }
         }
 
- 
+        public Option SelectedOption
+        {
+            get => _selectedOption;
+            set
+            {
+                if (_selectedOption != value)
+                {
+                    _selectedOption = value;
+                    OnPropertyChanged(nameof(SelectedOption));
+                }
+            }
+        }
+
+        public ObservableCollection<Option> CollectionOfOptions
+        {
+            get => _collectionOfOptions;
+            set
+            {
+                if (_collectionOfOptions != value)
+                {
+                    _collectionOfOptions = value;
+                    OnPropertyChanged(nameof(CollectionOfOptions));
+                }
+            }
+        }
+
 
 
         public ICommand ListAllMovies { get; set; }
@@ -116,79 +143,103 @@ namespace MovieCatalogueAppWPF.ViewModels
 
         public ICommand ByTitle { get; set; }
 
-      
+
         public ListAllMoviesViewModel()
         {
+            CollectionOfOptions.Add(new Option() { OptionName = "Descending" });
+            CollectionOfOptions.Add(new Option() { OptionName = "Title" });
+            CollectionOfOptions.Add(new Option() { OptionName = "Rating" });
 
-            ByRating = new LambdaCommand(() =>
-              {
-                  HttpClient client = new HttpClient
-                  {
-                      BaseAddress = new Uri("http://localhost:62560/")
-                  };
+            HttpClient client = new HttpClient
+            {
+                BaseAddress = new Uri("http://localhost:62560/")
+            };
 
-                  client.DefaultRequestHeaders.Accept.Add(
-                      new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-                  var response = client.GetAsync("movies/orderBy/Rating").Result;
-
-                  var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
-
-                  CollectionOfMovies = new ObservableCollection<Movie>(movies);
-              });
-
-
-            ByTitle = new LambdaCommand(() =>
-              {
-                  HttpClient client = new HttpClient
-                  {
-                      BaseAddress = new Uri("http://localhost:62560/")
-                  };
-
-                  client.DefaultRequestHeaders.Accept.Add(
-                      new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-                  var response = client.GetAsync("movies/orderBy/Title").Result;
-
-                  var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
-
-                  CollectionOfMovies = new ObservableCollection<Movie>(movies);
-              });
-
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
 
             ListAllMovies = new LambdaCommand(() =>
-            {
-                
+              {
+                  if (SelectedOption.OptionName == "Title")
+                  {
+                      var response = client.GetAsync("movies/orderBy/Title").Result;
 
-                HttpClient client = new HttpClient
-                {
-                    BaseAddress = new Uri("http://localhost:62560/")
-                };
+                      var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
 
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
+                      CollectionOfMovies = new ObservableCollection<Movie>(movies);
+                  }
+
+                  else if (SelectedOption.OptionName == "Rating")
+                  {
+                      var response = client.GetAsync("movies/orderBy/Rating").Result;
+
+                      var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
+
+                      CollectionOfMovies = new ObservableCollection<Movie>(movies);
+                  }
+
+                  else
+                  {
+                      var response = client.GetAsync("movies/all").Result;
+
+                      var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
+
+                      CollectionOfMovies = new ObservableCollection<Movie>(movies);
+                  }
+
+              });
 
 
-                var response = client.GetAsync("movies/all").Result;
+            //    ByTitle = new LambdaCommand(() =>
+            //      {
+            //          HttpClient client = new HttpClient
+            //          {
+            //              BaseAddress = new Uri("http://localhost:62560/")
+            //          };
 
-                var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
+            //          client.DefaultRequestHeaders.Accept.Add(
+            //              new MediaTypeWithQualityHeaderValue("application/json"));
 
 
-                CollectionOfMovies = new ObservableCollection<Movie>(movies);                
-                
-               
+            //          var response = client.GetAsync("movies/orderBy/Title").Result;
 
-                MessageBox.Show(response.IsSuccessStatusCode
-                    ? "Success!"
-                    : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
+            //          var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
 
-            });
+            //          CollectionOfMovies = new ObservableCollection<Movie>(movies);
+            //      });
+
+
+            //    ListAllMovies = new LambdaCommand(() =>
+            //    {
+
+
+            //        HttpClient client = new HttpClient
+            //        {
+            //            BaseAddress = new Uri("http://localhost:62560/")
+            //        };
+
+            //        client.DefaultRequestHeaders.Accept.Add(
+            //            new MediaTypeWithQualityHeaderValue("application/json"));
+
+
+            //        var response = client.GetAsync("movies/all").Result;
+
+            //        var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
+
+
+            //        CollectionOfMovies = new ObservableCollection<Movie>(movies);                
+
+
+
+            //        MessageBox.Show(response.IsSuccessStatusCode
+            //            ? "Success!"
+            //            : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
+
+            //    });
+            //}
+
         }
-
     }
-
 
 }
 

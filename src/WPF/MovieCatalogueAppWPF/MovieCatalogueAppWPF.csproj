@@ -148,6 +148,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\Option.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Validations\AreFieldsEmpty.cs" />
     <Compile Include="ViewModels\AddMovieViewModel.cs" />
