@@ -31,7 +31,8 @@
 
     <Grid>
 
-        <ListView ItemsSource="{Binding CollectionOfMovies}" HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1007" Margin="59,127,0,0" Grid.ColumnSpan="3" Grid.RowSpan="4">
+        <ListView ItemsSource="{Binding CollectionOfMovies}" SelectedItem="{Binding CurrentMovie}" 
+                  HorizontalAlignment="Left" Height="333" VerticalAlignment="Top" Width="1007" Margin="59,127,0,0" Grid.ColumnSpan="3" Grid.RowSpan="4">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="150"/>
@@ -39,12 +40,16 @@
                     <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding Rating}" Width="100"/>
                     <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding Summary}" Width="200"/>
                     <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}" Width="100"/>
-        
+
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button Width="50" Height="50" Command="{Binding ListAllMovies}"></Button>
+        <Button Content="List all"  Width="150" Height="50" Command="{Binding ListAllMovies}"></Button>
+
+
+        <TextBox Text="{Binding NewTitle, UpdateSourceTrigger=PropertyChanged}"  Width="Auto" Height="Auto" Margin="113,81,80.667,10" Grid.Row="3"/>
+        <Button Content="Update Movie" Width="175" Command="{Binding EditMovie}" HorizontalAlignment="Left" Margin="10.333,81,0,10" Grid.Column="1" Grid.Row="3"/>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -60,6 +65,6 @@
         </Grid.RowDefinitions>
 
 
-
     </Grid>
+
 </UserControl>

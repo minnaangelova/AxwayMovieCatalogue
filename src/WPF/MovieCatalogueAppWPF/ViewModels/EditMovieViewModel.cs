@@ -13,14 +13,14 @@ using System.Windows.Input;
 
 namespace MovieCatalogueAppWPF.ViewModels
 {
-    public class EditMovieViewModel: ViewModel
+    public class EditMovieViewModel : ViewModel
     {
         private string _title;
         private DateTime _releasedDate;
         private string _summary;
         private double _rating;
         private Genre _genre;
-       
+
         private ObservableCollection<Movie> _collectionOfMovies;
 
         public ObservableCollection<Movie> CollectionOfMovies
@@ -35,6 +35,36 @@ namespace MovieCatalogueAppWPF.ViewModels
                 }
             }
         }
+
+        private Movie _currentMovie;
+      
+
+
+        public Movie CurrentMovie
+        {
+            get => _currentMovie;
+            set
+            {
+                if (CurrentMovie != value)
+                {
+                    _currentMovie = value;
+                    OnPropertyChanged(nameof(CurrentMovie));
+                }
+            }
+        }
+
+        private string _newTitle;
+
+        public string NewTitle
+        {
+            get => _newTitle;
+            set
+            {
+                _newTitle = value;
+                OnPropertyChanged(nameof(NewTitle));
+            }
+        }
+
 
         public string Title
         {
@@ -101,8 +131,8 @@ namespace MovieCatalogueAppWPF.ViewModels
             }
         }
 
-        
 
+        public ICommand EditMovie { get; set; }
 
         public ICommand ListAllMovies { get; set; }
 
@@ -134,8 +164,42 @@ namespace MovieCatalogueAppWPF.ViewModels
                     : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
 
             });
-        }
 
-   
+
+            EditMovie = new LambdaCommand(() =>
+            {
+
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri("http://localhost:62560/")
+                };
+
+
+
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+
+                this.CurrentMovie.Title = this.NewTitle;
+
+                var response = client.PutAsJsonAsync($"movies/edit/{this.CurrentMovie.Id}", CurrentMovie).Result;
+
+
+
+                //var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
+
+
+                //CollectionOfMovies = new ObservableCollection<Movie>(movies);
+
+
+                MessageBox.Show(response.IsSuccessStatusCode
+                    ? "Success!"
+                    : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
+
+
+            });
+        }
+    }
 }
-}
+
+            
+
