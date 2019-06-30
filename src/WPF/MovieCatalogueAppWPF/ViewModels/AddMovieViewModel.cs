@@ -19,7 +19,7 @@ using Newtonsoft.Json;
 using System.Globalization;
 namespace MovieCatalogueAppWPF.ViewModels
 {
-    public class AddMovieViewModel: ViewModel
+    public class AddMovieViewModel : ViewModel
     {
         private string _title;
         private string _releasedDate;
@@ -124,7 +124,7 @@ namespace MovieCatalogueAppWPF.ViewModels
         {
             ListAll = new LambdaCommand(() =>
             {
-               
+
                 {
                     HttpClient client = new HttpClient
                     {
@@ -141,46 +141,46 @@ namespace MovieCatalogueAppWPF.ViewModels
                     var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
 
                     CollectionOfMovies = new ObservableCollection<Movie>(movies);
-                                     
-                       
+
+
                 }
             });
 
 
 
             AddNewMovie = new LambdaCommand(() =>
-              {
-                  using (var httpClient = new HttpClient())
-                  {
-                      httpClient.DefaultRequestHeaders.Accept.Add(
-                          new MediaTypeWithQualityHeaderValue("application/json"));
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    httpClient.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue("application/json"));
 
-                      var movieToAdd = new Movie
-                      {
-                          Title = this.Title,
-                          ReleaseDate = DateTime.ParseExact(this.ReleaseDate, "yyyy-M-dd",CultureInfo.InvariantCulture),
-                          Summary = this.Summary,
-                          Rating = this.Rating,
-                          Genre = this.Genre
+                    var movieToAdd = new Movie
+                    {
+                        Title = this.Title,
+                        ReleaseDate = DateTime.ParseExact(this.ReleaseDate, "yyyy-M-dd", CultureInfo.InvariantCulture),
+                        Summary = this.Summary,
+                        Rating = this.Rating,
+                        Genre = this.Genre
 
-                      };
+                    };
 
-                      JavaScriptSerializer jss = new JavaScriptSerializer();
+                    JavaScriptSerializer jss = new JavaScriptSerializer();
 
-                      // serialize into json string
-                      var myContent = jss.Serialize(movieToAdd);
+                    // serialize into json string
+                    var myContent = jss.Serialize(movieToAdd);
 
-                      var httpContent = new StringContent(myContent, Encoding.UTF8, "application/json");
+                    var httpContent = new StringContent(myContent, Encoding.UTF8, "application/json");
 
-                      HttpResponseMessage responseMessage = httpClient.PostAsync("http://localhost:62560/movies/add", httpContent)
-                      .GetAwaiter().GetResult();
+                    HttpResponseMessage responseMessage = httpClient.PostAsync("http://localhost:62560/movies/add", httpContent)
+                    .GetAwaiter().GetResult();
 
-                      MessageBox.Show(responseMessage.IsSuccessStatusCode
-                     ? "Movie has been added!"
-                     : $"Error code: {responseMessage.StatusCode} \n Message: {responseMessage.ReasonPhrase}");
-                  }
+                    MessageBox.Show(responseMessage.IsSuccessStatusCode
+                   ? "Movie has been added!"
+                   : $"Error code: {responseMessage.StatusCode} \n Message: {responseMessage.ReasonPhrase}");
+                }
 
-              });
+            });
 
 
         }

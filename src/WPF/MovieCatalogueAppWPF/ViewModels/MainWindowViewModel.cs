@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace MovieCatalogueAppWPF.ViewModels
 {
-    class MainWindowViewModel : ViewModel
+    public class MainWindowViewModel : ViewModel
     {
         private object _currentView;
 

@@ -31,20 +31,20 @@
 
     <Grid>
 
-        <ListView x:Name="listView4" ItemsSource="{Binding CollectionOfActors}" HorizontalAlignment="Left" Height="478" VerticalAlignment="Top" Width="607" Margin="427,159,0,0">
+        <ListView x:Name="listView4" ItemsSource="{Binding CollectionOfActors}" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="700" Margin="372,154,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="200"/>
-                    <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="200"/>
+                    <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="300"/>
+                    <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="300"/>
 
                 </GridView>
             </ListView.View>
         </ListView>
 
 
-        <Label Content="Actors" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="20" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="198" Margin="92,74,0,0"/>
+        <Label Content="Actors" BorderBrush="Black" BorderThickness="0,0,0,1"  FontSize="20" FontWeight="Bold" FontStyle="Italic"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="198" Margin="92,44,0,0"/>
 
-        <Button Content="List actors" Command="{Binding ListActorsCommand}" Margin="92,265,836,384"/>
+        <Button Content="List actors" Command="{Binding ListActorsCommand}" Margin="92,237,840,354" Grid.ColumnSpan="1"/>
 
     </Grid>
 </UserControl>

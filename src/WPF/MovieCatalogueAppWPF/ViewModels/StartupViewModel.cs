@@ -8,16 +8,20 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using MovieCatalogueApp.Models.Entities;
 
 namespace MovieCatalogueAppWPF.ViewModels
 {
-    public class StartupViewModel: ViewModel
+    public class StartupViewModel : ViewModel
     {
         public ICommand SearchMovieCommand { get; set; }
 
         public ObservableCollection<Movie> Movies { get; set; }
+
         private string textBoxValue;
 
         public string TextBoxValue
@@ -30,6 +34,21 @@ namespace MovieCatalogueAppWPF.ViewModels
                     textBoxValue = value;
                     OnPropertyChanged(nameof(TextBoxValue));
                 }
+            }
+        }
+
+        private string _poster;
+        public string Poster
+        {
+
+            get
+            {
+                return _poster;
+            }
+            set
+            {
+                _poster = value;
+                OnPropertyChanged(nameof(Poster));
             }
         }
 
@@ -49,10 +68,11 @@ namespace MovieCatalogueAppWPF.ViewModels
 
                 HttpResponseMessage response = client.GetAsync(url).Result;
 
+
                 if (response.IsSuccessStatusCode)
                 {
                     var movie = response.Content.ReadAsAsync<Movie>().Result;
-                    
+
 
                     MessageBox.Show(
                      $"Movie Found {movie.Title} \n {movie.Genre} \n {movie.Rating} \n {movie.ReleaseDate} \n {movie.Summary} \n {movie.Poster}");

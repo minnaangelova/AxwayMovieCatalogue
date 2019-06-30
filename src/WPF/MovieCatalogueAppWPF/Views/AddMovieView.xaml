@@ -48,8 +48,8 @@
 
         <Button Content="List all" Margin="124.667,52,65,15" Command="{Binding ListAll}" Grid.Column="2" />
 
-        <Button Content="Add" Grid.Column="1" Margin="278.333,0,278,80" Grid.Row="1" Grid.ColumnSpan="2"
-                Command="{Binding AddNewMovie}" />
+        <Button Content="Add" Margin="103,107,76.667,117" Grid.Row="3"
+                Command="{Binding AddNewMovie}" Grid.RowSpan="2" />
 
         <WrapPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="4">
             <TextBlock Text="   Title"></TextBlock>
@@ -60,18 +60,18 @@
             <TextBox Text="{Binding Rating}"></TextBox>
             <TextBlock Text="   Summary"></TextBlock>
             <TextBox Text="{Binding Summary}"></TextBox>
-            <TextBlock Text="   Genre"></TextBlock>
-            <TextBox Text="{Binding Genre}"></TextBox>
+
+
         </WrapPanel>
 
         <ListView x:Name="listView3" ItemsSource="{Binding CollectionOfMovies}" HorizontalAlignment="Left" Height="457" VerticalAlignment="Top" Width="650" Margin="38.333,69,0,0" Grid.ColumnSpan="2" Grid.RowSpan="4" Grid.Column="1" Grid.Row="1">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="100"/>
-                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding ReleaseDate}" Width="100"/>
-                    <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding Rating}" Width="100"/>
-                    <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding Summary}" Width="100"/>
-                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}" Width="100"/>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="150"/>
+                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding ReleaseDate}" Width="150"/>
+                    <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding Rating}" Width="150"/>
+                    <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding Summary}" Width="200"/>
+
                 </GridView>
             </ListView.View>
         </ListView>

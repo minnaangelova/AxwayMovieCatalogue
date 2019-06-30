@@ -17,7 +17,7 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
-        <WrapPanel Grid.Column="1">
+        <WrapPanel Name="wrapPanel1" Grid.Column="1">
             <TextBox Height="42"  FontSize="15 pt" Width="265" Margin="12.5,0,0,0" Text="{Binding TextBoxValue}"/>
             <Button Height="42" Width="42" Margin="0" Command="{Binding SearchMovieCommand}">Search</Button>
 

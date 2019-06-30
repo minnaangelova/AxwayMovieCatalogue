@@ -13,7 +13,7 @@ using System.Collections.ObjectModel;
 
 namespace MovieCatalogueAppWPF.ViewModels
 {
-    public class DeleteMovieViewModel:ViewModel
+    public class DeleteMovieViewModel : ViewModel
     {
 
 
@@ -72,7 +72,7 @@ namespace MovieCatalogueAppWPF.ViewModels
                     CollectionOfMovies = new ObservableCollection<Movie>(movies);
 
 
-                    
+
                 }
             });
 

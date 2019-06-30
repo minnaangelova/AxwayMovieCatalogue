@@ -31,14 +31,13 @@
 
     <Grid>
 
-        <ListView x:Name="listView2" ItemsSource="{Binding CollectionOfMovies}" HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1007" Margin="59,127,0,0" Grid.ColumnSpan="3" Grid.RowSpan="4">
+        <ListView x:Name="listView2" ItemsSource="{Binding CollectionOfMovies}" HorizontalAlignment="Left" Height="422" VerticalAlignment="Top" Width="1000" Margin="59,127,0,0" Grid.ColumnSpan="3" Grid.RowSpan="4">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="150"/>
-                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding ReleaseDate}" Width="80"/>
-                    <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding Rating}" Width="100"/>
-                    <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding Summary}" Width="200"/>
-                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}" Width="100"/>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="250"/>
+                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding ReleaseDate}" Width="250"/>
+                    <GridViewColumn Header="Rating" DisplayMemberBinding="{Binding Rating}" Width="250"/>
+                    <GridViewColumn Header="Summary" DisplayMemberBinding="{Binding Summary}" Width="150"/>
 
                 </GridView>
             </ListView.View>
