@@ -249,7 +249,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="MovieCatalogue.jpg" />
+    <Resource Include="Images\moviestrip.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MOVIElogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
