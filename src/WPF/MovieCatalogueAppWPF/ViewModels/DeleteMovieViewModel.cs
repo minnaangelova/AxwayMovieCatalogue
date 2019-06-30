@@ -71,9 +71,8 @@ namespace MovieCatalogueAppWPF.ViewModels
 
                     CollectionOfMovies = new ObservableCollection<Movie>(movies);
 
-                    MessageBox.Show(response.IsSuccessStatusCode
-                        ? "Success!"
-                        : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
+
+                    
                 }
             });
 
@@ -98,10 +97,10 @@ namespace MovieCatalogueAppWPF.ViewModels
 
                     var url = "deleteMovie/" + this.CurrentMovie.Id;
                     HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
-                    
+
                     MessageBox.Show(response.IsSuccessStatusCode
-                        ? "Movie Deleted"
-                        : $"Error code {response.StatusCode}");
+                         ? "Movie has been deleted!"
+                         : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
                 }
             });
         }

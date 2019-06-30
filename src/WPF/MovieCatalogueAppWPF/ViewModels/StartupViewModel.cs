@@ -49,9 +49,6 @@ namespace MovieCatalogueAppWPF.ViewModels
 
                 HttpResponseMessage response = client.GetAsync(url).Result;
 
-
-               //Movies = new ObservableCollection<Movie>(movie);
-
                 if (response.IsSuccessStatusCode)
                 {
                     var movie = response.Content.ReadAsAsync<Movie>().Result;
@@ -59,7 +56,6 @@ namespace MovieCatalogueAppWPF.ViewModels
 
                     MessageBox.Show(
                      $"Movie Found {movie.Title} \n {movie.Genre} \n {movie.Rating} \n {movie.ReleaseDate} \n {movie.Summary} \n {movie.Poster}");
-
 
                 }
                 else

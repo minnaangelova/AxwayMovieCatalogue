@@ -141,10 +141,8 @@ namespace MovieCatalogueAppWPF.ViewModels
                     var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
 
                     CollectionOfMovies = new ObservableCollection<Movie>(movies);
-
-                    MessageBox.Show(response.IsSuccessStatusCode
-                        ? "Success!"
-                        : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
+                                     
+                       
                 }
             });
 
@@ -152,47 +150,6 @@ namespace MovieCatalogueAppWPF.ViewModels
 
             AddNewMovie = new LambdaCommand(() =>
               {
-                  //HttpClient client = new HttpClient
-                  //{
-                  //    BaseAddress = new Uri("http://localhost:62560/")
-                  //};
-
-                  //client.DefaultRequestHeaders.Accept.Add(
-                  //     new MediaTypeWithQualityHeaderValue("application/json"));
-
-                  //var movieToAdd = new Movie
-                  //{
-                  //    Title = this.Title,
-                  //    ReleaseDate = this.ReleaseDate,
-                  //    Summary = this.Summary,
-                  //    Rating = this.Rating
-
-                  //};
-
-
-                  //var serializedMovie = JsonConvert.SerializeObject(movieToAdd);
-
-
-                  ////var stringContent = new StringContent(serializedMovie, Encoding.UTF8, "application/json");
-
-                  ////var result = new StringContent(new JavaScriptSerializer().Serialize(movieToAdd));
-
-                  //var response = client.PostAsJsonAsync("movies/add", new StringContent(new JavaScriptSerializer().Serialize(movieToAdd), Encoding.UTF8, "application/json")).GetAwaiter().GetResult();
-
-                  //var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
-
-                  //CollectionOfMovies = new ObservableCollection<Movie>(movies);
-
-
-                  //MessageBox.Show(response.IsSuccessStatusCode
-                  //    ? "Success!"
-                  //    : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
-
-
-
-
-                  string ResponseString = "";
-                  HttpWebResponse response = null;
                   using (var httpClient = new HttpClient())
                   {
                       httpClient.DefaultRequestHeaders.Accept.Add(
@@ -218,11 +175,10 @@ namespace MovieCatalogueAppWPF.ViewModels
                       HttpResponseMessage responseMessage = httpClient.PostAsync("http://localhost:62560/movies/add", httpContent)
                       .GetAwaiter().GetResult();
 
+                      MessageBox.Show(responseMessage.IsSuccessStatusCode
+                     ? "Movie has been added!"
+                     : $"Error code: {responseMessage.StatusCode} \n Message: {responseMessage.ReasonPhrase}");
                   }
-
-                  //MessageBox.Show(responseMessage.IsSuccessStatusCode
-                  //     ? "Success!"
-                  //     : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
 
               });
 

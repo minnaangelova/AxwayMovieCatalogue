@@ -157,12 +157,6 @@ namespace MovieCatalogueAppWPF.ViewModels
 
                 CollectionOfMovies = new ObservableCollection<Movie>(movies);
 
-
-
-                MessageBox.Show(response.IsSuccessStatusCode
-                    ? "Success!"
-                    : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
-
             });
 
 
@@ -183,16 +177,8 @@ namespace MovieCatalogueAppWPF.ViewModels
 
                 var response = client.PutAsJsonAsync($"movies/edit/{this.CurrentMovie.Id}", CurrentMovie).Result;
 
-
-
-                //var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
-
-
-                //CollectionOfMovies = new ObservableCollection<Movie>(movies);
-
-
                 MessageBox.Show(response.IsSuccessStatusCode
-                    ? "Success!"
+                    ? "Movie title has been edited!"
                     : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
 
 

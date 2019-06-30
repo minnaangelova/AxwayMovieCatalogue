@@ -189,55 +189,6 @@ namespace MovieCatalogueAppWPF.ViewModels
 
               });
 
-
-            //    ByTitle = new LambdaCommand(() =>
-            //      {
-            //          HttpClient client = new HttpClient
-            //          {
-            //              BaseAddress = new Uri("http://localhost:62560/")
-            //          };
-
-            //          client.DefaultRequestHeaders.Accept.Add(
-            //              new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-            //          var response = client.GetAsync("movies/orderBy/Title").Result;
-
-            //          var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
-
-            //          CollectionOfMovies = new ObservableCollection<Movie>(movies);
-            //      });
-
-
-            //    ListAllMovies = new LambdaCommand(() =>
-            //    {
-
-
-            //        HttpClient client = new HttpClient
-            //        {
-            //            BaseAddress = new Uri("http://localhost:62560/")
-            //        };
-
-            //        client.DefaultRequestHeaders.Accept.Add(
-            //            new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-            //        var response = client.GetAsync("movies/all").Result;
-
-            //        var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
-
-
-            //        CollectionOfMovies = new ObservableCollection<Movie>(movies);                
-
-
-
-            //        MessageBox.Show(response.IsSuccessStatusCode
-            //            ? "Success!"
-            //            : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
-
-            //    });
-            //}
-
         }
     }
 
