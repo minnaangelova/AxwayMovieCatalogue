@@ -20,8 +20,9 @@ namespace MovieCatalogueAppWebApi.Controllers
             this.movieService = _movieService;
         }
 
+        [AcceptVerbs("POST", "GET")]
         [HttpPost, Route("add")]
-        public IHttpActionResult AddNewMovie(Movie movie)
+        public IHttpActionResult AddNewMovie([FromBody]Movie movie)
         {
             var result = this.movieService.addMovie(movie);
             return Ok();

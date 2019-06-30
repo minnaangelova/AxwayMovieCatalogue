@@ -16,12 +16,13 @@ using System.Net;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Globalization;
 namespace MovieCatalogueAppWPF.ViewModels
 {
     public class AddMovieViewModel: ViewModel
     {
         private string _title;
-        private DateTime _releasedDate;
+        private string _releasedDate;
         private string _summary;
         private double _rating;
         private Genre _genre;
@@ -55,7 +56,7 @@ namespace MovieCatalogueAppWPF.ViewModels
             }
         }
 
-        public DateTime ReleaseDate   
+        public string ReleaseDate
         {
             get => _releasedDate;
             set
@@ -107,6 +108,15 @@ namespace MovieCatalogueAppWPF.ViewModels
             }
         }
 
+        public class ListMovies
+        {
+            public IEnumerable<Movie> Movies
+            {
+                get;
+                set;
+            }
+        }
+
         public ICommand ListAll { get; set; }
         public ICommand AddNewMovie { get; set; }
 
@@ -142,11 +152,41 @@ namespace MovieCatalogueAppWPF.ViewModels
 
             AddNewMovie = new LambdaCommand(() =>
               {
-
                   //HttpClient client = new HttpClient
                   //{
                   //    BaseAddress = new Uri("http://localhost:62560/")
                   //};
+
+                  //client.DefaultRequestHeaders.Accept.Add(
+                  //     new MediaTypeWithQualityHeaderValue("application/json"));
+
+                  //var movieToAdd = new Movie
+                  //{
+                  //    Title = this.Title,
+                  //    ReleaseDate = this.ReleaseDate,
+                  //    Summary = this.Summary,
+                  //    Rating = this.Rating
+
+                  //};
+
+
+                  //var serializedMovie = JsonConvert.SerializeObject(movieToAdd);
+
+
+                  ////var stringContent = new StringContent(serializedMovie, Encoding.UTF8, "application/json");
+
+                  ////var result = new StringContent(new JavaScriptSerializer().Serialize(movieToAdd));
+
+                  //var response = client.PostAsJsonAsync("movies/add", new StringContent(new JavaScriptSerializer().Serialize(movieToAdd), Encoding.UTF8, "application/json")).GetAwaiter().GetResult();
+
+                  //var movies = response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
+
+                  //CollectionOfMovies = new ObservableCollection<Movie>(movies);
+
+
+                  //MessageBox.Show(response.IsSuccessStatusCode
+                  //    ? "Success!"
+                  //    : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
 
 
 
@@ -161,81 +201,28 @@ namespace MovieCatalogueAppWPF.ViewModels
                       var movieToAdd = new Movie
                       {
                           Title = this.Title,
-                          ReleaseDate = this.ReleaseDate,
+                          ReleaseDate = DateTime.ParseExact(this.ReleaseDate, "yyyy-M-dd",CultureInfo.InvariantCulture),
                           Summary = this.Summary,
                           Rating = this.Rating,
                           Genre = this.Genre
 
-
                       };
+
                       JavaScriptSerializer jss = new JavaScriptSerializer();
+
                       // serialize into json string
                       var myContent = jss.Serialize(movieToAdd);
+
                       var httpContent = new StringContent(myContent, Encoding.UTF8, "application/json");
-                      HttpResponseMessage responseMessage = httpClient.PostAsync("http://localhost:62560/movies/add", httpContent).GetAwaiter().GetResult();
 
+                      HttpResponseMessage responseMessage = httpClient.PostAsync("http://localhost:62560/movies/add", httpContent)
+                      .GetAwaiter().GetResult();
 
-                      
                   }
 
-
-                  //application/xml
-                  //     var request = (HttpWebRequest)WebRequest.Create("http://localhost:62560/movies/add");
-                  //     request.Accept = "application/json"; //"application/xml";
-                  //     request.Method = "POST";
-                  // var movieToAdd = new Movie
-                  // {
-                  //     Title = this.Title,
-                  //     ReleaseDate = this.ReleaseDate,
-                  //     Summary = this.Summary,
-                  //     Rating = this.Rating,
-                  //     Genre = this.Genre
-                  // };
-                  //     JavaScriptSerializer jss = new JavaScriptSerializer();
-                  //   var myContent = jss.Serialize(movieToAdd);
-                  //   var data = Encoding.ASCII.GetBytes(myContent);
-
-                  //     request.ContentType = "application/json";
-                  //     request.ContentLength = data.Length;
-                  //     using (var stream = request.GetRequestStream())
-                  //     {
-                  //         stream.Write(data, 0, data.Length);
-                  //     }
-                  //     response = (HttpWebResponse)request.GetResponse();
-
-                  //     ResponseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-
-                  //var httpResponse = (HttpWebResponse) httpWebRequest.GetResponse();
-
-                  //using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                  //{
-                  //    var result = streamReader.ReadToEnd();
-                  //}
-                  //client.DefaultRequestHeaders.Accept.Add(
-                  //        new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-                  //var movieToAdd = new Movie
-                  //{
-                  //    Title = this.Title,
-                  //    ReleaseDate = this.ReleaseDate,
-                  //    Summary = this.Summary,
-                  //    Rating = this.Rating,
-                  //    Genre = this.Genre
-                  //};
-                  //var movie = JsonConvert.SerializeObject(movieToAdd);
-                  //;
-                  //var stringContent = new StringContent(Js.SerializeObject(movieToAdd));
-                  //var response = client.PostAsync("movies/add", stringContent).Result;
-
-
-
-                  //MessageBox.Show(response.IsSuccessStatusCode
+                  //MessageBox.Show(responseMessage.IsSuccessStatusCode
                   //     ? "Success!"
                   //     : $"Error code: {response.StatusCode} \n Message: {response.ReasonPhrase}");
-
-
 
               });
 

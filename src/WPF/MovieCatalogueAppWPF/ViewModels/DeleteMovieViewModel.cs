@@ -100,7 +100,7 @@ namespace MovieCatalogueAppWPF.ViewModels
                     HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
                     
                     MessageBox.Show(response.IsSuccessStatusCode
-                        ? "User Deleted"
+                        ? "Movie Deleted"
                         : $"Error code {response.StatusCode}");
                 }
             });
